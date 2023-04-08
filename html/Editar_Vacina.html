@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">        
+    </head>
+    <body>
+        <!-- #region Cabeçalho -->
+        <nav>
+            <title>MyHealth</title>
+            <img src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+            <h1>MyHealth</h1>
+            <button>
+                Minhas vacinas
+            </button>
+            <button>
+                Sair
+            </button>
+        </nav>
+        <!-- #endregion -->
+        
+        <!-- #region Corpo -->
+        <Main>
+            <form action="editarVacina.php" method="post">
+                
+                <label for="dateEditarVacina">Data da vacina</label>
+                <input type="date" name="editarDataVacina" id="dateEditarVacina">
+                
+                <br>
+
+                <label for="txtEditarNomeVacina">Nome da vacina</label>
+                <input type="text" name="editarNomeVacina" id="txtEditarNomeVacina">
+                
+                <br>
+
+                <label>Dose</label>
+                <input type="radio" name="dose" id="1_dose">
+                <label for="1_dose">1°</label>
+
+                <input type="radio" name="dose" id="2_dose">
+                <label for="2_dose">2°</label>
+
+                <input type="radio" name="dose" id="3_dose">
+                <label for="3_dose">3°</label>
+
+                <input type="radio" name="dose" id="reforco">
+                <label for="reforco">Reforço</label>
+
+                <input type="radio" name="dose" id="unica">
+                <label for="unica">Única</label>
+                
+                <br>
+
+                <label for="comprovante">Comprovante de vacinação</label>
+                <input type="file"
+                    id="comprovante" name="comprovante"
+                    accept="image/png, image/jpeg, file/pdf">
+                    
+                <br>
+
+                <button>Salvar vacina</button>
+                <button>Excluir</button>
+
+            </form>
+        </Main>
+        <!-- #endregion -->
+    </body>
+</html>

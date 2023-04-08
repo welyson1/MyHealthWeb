@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">        
+    </head>
+    <body>
+        <!-- #region Cabeçalho -->
+        <nav>
+            <title>MyHealth</title>
+            <img src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+            <h1>MyHealth</h1>
+        </nav>
+        <!-- #endregion -->
+        
+        <!-- #region Corpo -->
+        <Main>
+            <form action="criarConta.php" method="post">
+                
+                <label for="txtCriarNome">Nome completo</label>
+                <input type="text" name="criarNome" id="txtCriarNome">
+                
+                <br>
+
+                <label>Genero</label>
+                <input type="radio" name="genero" id="masculino">
+                <label for="radioMasculino">Masculino</label>
+
+                <input type="radio" name="genero" id="feminino">
+                <label for="radioFeminino">Feminino</label>
+                
+                <br>
+
+                <label for="dateCriarDataNascimento">Data de nascimento</label>
+                <input type="date" name="criarDataNascimento" id="dateCriarDataNascimento">
+                
+                <br>
+
+                <label for="txtCriarEmail">E-mail</label>
+                <input type="text" name="criarEmail" id="txtCriarEmail">
+                
+                <br>
+
+                <label for="pwCriarSenha">Senha</label>
+                <input type="password" name="criarSenha" id="pwCriarSenha">
+                
+                <br>
+
+                <label for="pwRepetirCriarSenha">Repita a senha</label>
+                <input type="password" name="repetirCriarSenha" id="pwRepetirCriarSenha">
+                
+                <br>
+
+                <button>Salvar vacina</button>
+                <button>Excluir</button>
+                
+            </form>
+        </Main>
+        <!-- #endregion -->
+    </body>
+</html>

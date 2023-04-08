@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="br">
+    <head>
+        <title>Site teste boas praticas</title>
+        <style>
+            label {
+                color: blue;
+            }
+            #txtNome {
+                color: aqua;
+                border-color: blue;
+                border: 0cap;
+                width: 100%;
+            }
+
+            #inputNome{
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+        </style>
+
+    </head>
+    <body>
+        <form action="processa.php">
+            <label id="txtNome" for="txtNome">Nome: <input type="text" name="nome" id="inputNome"></label>            
+
+            <br>
+
+            <label id="txtIdade" for="txtIdade">Idade:<input type="text" name="idade" id="inputIdade"></label>            
+
+            <br>
+            <label id="txtTipoPessoa">Tipo de pessoa: </label>            
+            
+            <label id="txtTFisica"><input type="radio" name="tipo" id="escolhaFisica" value="fisica">Física</label>            
+            
+            <label><input type="radio" name="tipo" id="escolhaJuridica" value="juridica">Juridica</label>
+
+            <br>
+            
+            <label><input type="checkbox" name="escolha1" id="lanche" value="lanche">Lanche</label>
+            <br>
+            
+            <label><input type="checkbox" name="escolha2" id="suco" value="suco">Suco</label>
+
+            <br>
+
+            <input type="submit">
+        </form>
+
+    </body>
+</html>
