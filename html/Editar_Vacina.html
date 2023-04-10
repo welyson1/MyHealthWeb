@@ -1,65 +1,78 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">        
+        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png"> 
+        <link rel="stylesheet" href="/css/styleEditar_Vacina.css">
+        <link rel="stylesheet" href="/css/styleNav.css">  
     </head>
     <body>
         <!-- #region Cabeçalho -->
         <nav>
-            <title>MyHealth</title>
-            <img src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-            <h1>MyHealth</h1>
-            <button>
-                Minhas vacinas
-            </button>
-            <button>
-                Sair
-            </button>
+            <div id="div_logoEnome">
+                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+                <h1>MyHealth</h1>
+            </div> 
+            <div>
+                <a class="btn" href="">Minhas vacinas</a>
+                <a class="btn" href="">Logout</a>
+            </div>            
         </nav>
         <!-- #endregion -->
         
         <!-- #region Corpo -->
-        <Main>
+        <Main>   
             <form action="editarVacina.php" method="post">
-                
-                <label for="dateEditarVacina">Data da vacina</label>
-                <input type="date" name="editarDataVacina" id="dateEditarVacina">
-                
-                <br>
+                <section class="section-btn-excluir">             
+                    <button class="btn-vermelho">Excluir</button>
+                </section>
 
-                <label for="txtEditarNomeVacina">Nome da vacina</label>
-                <input type="text" name="editarNomeVacina" id="txtEditarNomeVacina">
-                
-                <br>
+                <label for="dateDataVacina">
+                    Data da vacina 
+                    <input type="date" name="editarDataVacina" id="dateEditarVacina">
+                </label>
 
-                <label>Dose</label>
-                <input type="radio" name="dose" id="1_dose">
-                <label for="1_dose">1°</label>
+                <label for="editarNomeVacina">
+                    vacina 
+                    <input type="text" name="editarNomeVacina" id="txtEditarNomeVacina"> 
+                </label>
 
-                <input type="radio" name="dose" id="2_dose">
-                <label for="2_dose">2°</label>
+                <label>
+                    Dose 
+                    <label for="1_dose">1a. dose
+                        <input type="radio" name="dose" id="1_dose">
+                    </label>
 
-                <input type="radio" name="dose" id="3_dose">
-                <label for="3_dose">3°</label>
+                    <label for="2_dose">2a. dose
+                        <input type="radio" name="dose" id="2_dose">
+                    </label>
 
-                <input type="radio" name="dose" id="reforco">
-                <label for="reforco">Reforço</label>
+                    <label for="3_dose">3a. dose
+                        <input type="radio" name="dose" id="3_dose">
+                    </label>
 
-                <input type="radio" name="dose" id="unica">
-                <label for="unica">Única</label>
-                
-                <br>
+                    <label for="reforco">Reforço
+                        <input type="radio" name="dose" id="reforco">
+                    </label>
 
-                <label for="comprovante">Comprovante de vacinação</label>
-                <input type="file"
+                    <label for="unica">Dose Única
+                        <input type="radio" name="dose" id="unica">
+                    </label>
+
+                </label>
+
+                <label for="comprovante">Comprovante de vacinação
+                    <input type="file"
                     id="comprovante" name="comprovante"
-                    accept="image/png, image/jpeg, file/pdf">
-                    
-                <br>
+                    accept="image/png, image/jpeg, file/pdf"> 
+                </label>
+                
+                <label for="dateProximaVacina">Próxima vacinação
+                    <input type="date" name="editarDataVacina" id="dateEditarVacina">
+                </label>
 
-                <button>Salvar vacina</button>
-                <button>Excluir</button>
-
+                <section class="section-btn-salvar">
+                    <button class="btn-verde">Salvar vacina</button>
+                </section>                                         
             </form>
         </Main>
         <!-- #endregion -->

@@ -4,29 +4,59 @@ body{
     margin: 0;
     color: #419ED7;
     font-family: 'Averia Libre';
-    background-color: red;
+}
+.section-search{
+    padding: 10px;
+    width: 90%;
+}
+
+input[type="text"] {
+    font-family: 'Averia Libre';
+    height: 30px;
+    width: 100%;
 }
 main{
     background-color: #ADD4D0;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column;    
 }
-#section-grid{
+.section-grid{
     padding-left: 100px;
     padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 30px;
     display: grid;
     grid-template-columns: auto auto auto;
     column-gap: 10px;
     row-gap: 10px;
-    justify-items: stretch;
-    align-items: stretch;
-    justify-content: space-around;
-    align-content: stretch;
 }
-section div{
+.card-vacina{
     background-color: #ffffff;
     border-radius: 10px;
+    display: block;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.cabeca-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vencimento-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.vencimento-card h2{
+    font-size: 16px;    
+    color: red;
+    margin: 0%;
+}
+.section-btn{
+    padding: 30px;
 }
 .btn-verde{
     box-shadow: 0px 0px 1px 0px #000000;
@@ -38,15 +68,4 @@ section div{
     font-size:17px;
     padding:10px 31px;
     text-decoration:none;
-}
-#section-search{
-    padding: 10px;
-    background-color: red;
-    width: 90%;
-}
-
-input[type="text"] {
-    font-family: 'Averia Libre';
-    height: 30px;
-    width: 100%;
 }

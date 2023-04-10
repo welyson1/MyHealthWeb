@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">        
+        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
+        <link rel="stylesheet" href="/css/styleNav.css">
+        <link rel="stylesheet" href="/css/styleRecuperar_a_senha.css">     
     </head>
     <body>
         <!-- #region Cabeçalho -->
         <nav>
-            <title>MyHealth</title>
-            <img src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-            <h1>MyHealth</h1>
+            <div id="div_logoEnome">
+                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+                <h1>MyHealth</h1>
+            </div>          
         </nav>
         <!-- #endregion -->
         
         <!-- #region Corpo -->
         <Main>
-            <section>
-                <form action="recuperar.php" method="post">
+            <form action="recuperar.php" method="post">
+                <div class="form-email">
                     <label for="txtEmailRecuperar">E-mail</label>
                     <input type="text" name="emailRecuperar" id="txtEmailRecuperar">
-                    <br>
-                    <button id="btnRecuperar">Redefinir senha</button>
-                </form>
-            </section>
+                </div>
+                <div>
+                    <a href="" class="btn">Redefinir senha</a>
+                </div>
+            </form>
         </Main>
         <!-- #endregion -->
     </body>

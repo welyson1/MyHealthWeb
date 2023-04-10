@@ -2,24 +2,19 @@
 
 body{
     margin: 0;
-    color: #419ED7;
+    background-color: #ADD4D0;
     font-family: 'Averia Libre';
 }
-#iconePage{
-    width: 51px;
-    height: 51px;
-}
-nav{
-    background-color: #C1E7E3;
+
+main{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
     align-items: center;
-    padding: 0.5%;
+    justify-content: center;
+    gap: 10px;
 }
-#div_logoEnome{
-    display: flex;                
-}
+
 .btn{
     box-shadow: 0px 0px 1px 0px #419dd7;
     background:linear-gradient(to bottom, #419dd7 5%, #419dd7 100%);

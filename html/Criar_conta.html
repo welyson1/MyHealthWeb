@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">        
+        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
+        <link rel="stylesheet" href="/css/styleCriar_Conta.css">
+        <link rel="stylesheet" href="/css/styleNav.css">   
     </head>
     <body>
         <!-- #region Cabeçalho -->
         <nav>
-            <title>MyHealth</title>
-            <img src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-            <h1>MyHealth</h1>
+            <div id="div_logoEnome">
+                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+                <h1>MyHealth</h1>
+            </div>          
         </nav>
         <!-- #endregion -->
         
         <!-- #region Corpo -->
         <Main>
             <form action="criarConta.php" method="post">
-                
-                <label for="txtCriarNome">Nome completo</label>
-                <input type="text" name="criarNome" id="txtCriarNome">
-                
-                <br>
+                <div class="form-all">                
+                    <div class="form-group-label">
+                        <label for="txtCriarNome">Nome completo</label>
+                        <label>Genero</label>
+                        <label for="dateCriarDataNascimento">Data de nascimento</label>
+                        <label for="txtCriarEmail">E-mail</label>
+                        <label for="pwCriarSenha">Senha</label>
+                        <label for="pwRepetirCriarSenha">Repita a senha</label>
+                    </div>
 
-                <label>Genero</label>
-                <input type="radio" name="genero" id="masculino">
-                <label for="radioMasculino">Masculino</label>
+                    <div class="form-group-input">
+                        <input type="text" name="criarNome" id="txtCriarNome">
+                        
+                        <div class="form-group-input-radio">
+                            <input type="radio" name="genero" id="masculino">
+                            <label for="radioMasculino">Masculino</label>
 
-                <input type="radio" name="genero" id="feminino">
-                <label for="radioFeminino">Feminino</label>
-                
-                <br>
+                            <input type="radio" name="genero" id="feminino">
+                            <label for="radioFeminino">Feminino</label>
+                        </div>                    
 
-                <label for="dateCriarDataNascimento">Data de nascimento</label>
-                <input type="date" name="criarDataNascimento" id="dateCriarDataNascimento">
-                
-                <br>
+                        <input type="date" name="criarDataNascimento" id="dateCriarDataNascimento">
+                        <input type="text" name="criarEmail" id="txtCriarEmail">
+                        <input type="password" name="criarSenha" id="pwCriarSenha">
+                        <input type="password" name="repetirCriarSenha" id="pwRepetirCriarSenha">
+                        <label class="log-senha">Senha não confere</label>
+                    </div>
+                </div>
 
-                <label for="txtCriarEmail">E-mail</label>
-                <input type="text" name="criarEmail" id="txtCriarEmail">
-                
-                <br>
-
-                <label for="pwCriarSenha">Senha</label>
-                <input type="password" name="criarSenha" id="pwCriarSenha">
-                
-                <br>
-
-                <label for="pwRepetirCriarSenha">Repita a senha</label>
-                <input type="password" name="repetirCriarSenha" id="pwRepetirCriarSenha">
-                
-                <br>
-
-                <button>Salvar vacina</button>
-                <button>Excluir</button>
+                <div class="btn">
+                    <button>Cadastrar</button>
+                </div>                
                 
             </form>
         </Main>
