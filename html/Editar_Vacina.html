@@ -20,61 +20,59 @@
         <!-- #endregion -->
         
         <!-- #region Corpo -->
-        <Main>   
+        <main>   
             <form action="editarVacina.php" method="post">
                 <section class="section-btn-excluir">             
                     <button class="btn-vermelho">Excluir</button>
                 </section>
 
-                <label for="dateDataVacina">
-                    Data da vacina 
+                <div class="form-div">
+                    <label for="dateEditarVacina">Data da vacina</label>
                     <input type="date" name="editarDataVacina" id="dateEditarVacina">
-                </label>
+                </div>
 
-                <label for="editarNomeVacina">
-                    vacina 
-                    <input type="text" name="editarNomeVacina" id="txtEditarNomeVacina"> 
-                </label>
+                <div class="form-div">
+                    <label for="txtEditarNomeVacina">vacina</label>
+                    <input type="text" name="editarNomeVacina" id="txtEditarNomeVacina">
+                </div> 
 
-                <label>
-                    Dose 
-                    <label for="1_dose">1a. dose
+                <div class="form-div">
+                    <label>Dose</label>
+                    <div class="form-div-dose"> 
                         <input type="radio" name="dose" id="1_dose">
-                    </label>
-
-                    <label for="2_dose">2a. dose
+                        <label for="1_dose">1a. dose</label>
+    
                         <input type="radio" name="dose" id="2_dose">
-                    </label>
-
-                    <label for="3_dose">3a. dose
+                        <label for="2_dose">2a. dose</label>
+                        
                         <input type="radio" name="dose" id="3_dose">
-                    </label>
-
-                    <label for="reforco">Reforço
+                        <label for="3_dose">3a. dose</label>
+    
                         <input type="radio" name="dose" id="reforco">
-                    </label>
-
-                    <label for="unica">Dose Única
+                        <label for="reforco">Reforço</label>
+    
                         <input type="radio" name="dose" id="unica">
-                    </label>
+                        <label for="unica">Dose Única</label>
+                    </div>
+                </div>                
 
-                </label>
-
-                <label for="comprovante">Comprovante de vacinação
+                <div class="form-div">
+                    <label for="comprovante">Comprovante de vacinação</label>
                     <input type="file"
                     id="comprovante" name="comprovante"
                     accept="image/png, image/jpeg, file/pdf"> 
-                </label>
-                
-                <label for="dateProximaVacina">Próxima vacinação
-                    <input type="date" name="editarDataVacina" id="dateEditarVacina">
-                </label>
+                </div>  
 
+                <div class="form-div">
+                    <label for="dateProximaVacina">Próxima vacinação</label>
+                    <input type="date" name="editarDataVacina" id="dateEditarVacina">
+                </div>
+                
                 <section class="section-btn-salvar">
-                    <button class="btn-verde">Salvar vacina</button>
+                    <button class="btn-verde">Salvar alterações</button>
                 </section>                                         
             </form>
-        </Main>
+        </main>
         <!-- #endregion -->
     </body>
 </html>
