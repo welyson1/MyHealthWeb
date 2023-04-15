@@ -18,39 +18,42 @@
         <!-- #region Corpo -->
         <Main>
             <form action="criarConta.php" method="post">
-                <div class="form-all">                
-                    <div class="form-group-label">
-                        <label for="txtCriarNome">Nome completo</label>
-                        <label>Genero</label>
-                        <label for="dateCriarDataNascimento">Data de nascimento</label>
-                        <label for="txtCriarEmail">E-mail</label>
-                        <label for="pwCriarSenha">Senha</label>
-                        <label for="pwRepetirCriarSenha">Repita a senha</label>
-                    </div>
-
-                    <div class="form-group-input">
-                        <input type="text" name="criarNome" id="txtCriarNome">
-                        
-                        <div class="form-group-input-radio">
-                            <input type="radio" name="genero" id="masculino">
-                            <label for="radioMasculino">Masculino</label>
-
-                            <input type="radio" name="genero" id="feminino">
-                            <label for="radioFeminino">Feminino</label>
-                        </div>                    
-
-                        <input type="date" name="criarDataNascimento" id="dateCriarDataNascimento">
-                        <input type="text" name="criarEmail" id="txtCriarEmail">
-                        <input type="password" name="criarSenha" id="pwCriarSenha">
-                        <input type="password" name="repetirCriarSenha" id="pwRepetirCriarSenha">
-                        <label class="log-senha">Senha não confere</label>
-                    </div>
+                <div class="form-div">
+                    <label for="txtCriarNome">Nome completo</label>
+                    <input type="text" name="criarNome" id="txtCriarNome">
                 </div>
+                <div class="form-div">
+                    <label>Genero</label>
+                    <div class="form-div-radio">
+                        <input type="radio" name="genero" id="masculino">
+                        <label for="radioMasculino">Masculino</label>
 
-                <div class="btn">
-                    <button>Cadastrar</button>
-                </div>                
-                
+                        <input type="radio" name="genero" id="feminino">
+                        <label for="radioFeminino">Feminino</label>
+                    </div>                    
+                </div>
+                <div class="form-div">
+                    <label for="dateCriarDataNascimento">Data de nascimento</label>
+                    <input type="date" name="criarDataNascimento" id="dateCriarDataNascimento">
+                </div>
+                <div class="form-div">
+                    <label for="txtCriarEmail">E-mail</label>
+                    <input type="text" name="criarEmail" id="txtCriarEmail">
+                </div>
+                <div class="form-div">
+                    <label for="pwCriarSenha">Senha</label>
+                    <input type="password" name="criarSenha" id="pwCriarSenha">
+                </div>
+                <div class="form-div">
+                    <label for="pwRepetirCriarSenha">Repita a senha</label>
+                    <input type="password" name="repetirCriarSenha" id="pwRepetirCriarSenha">
+                </div>
+                <div class="form-div">
+                    <label class="log-senha">Senha não confere</label>
+                </div>
+                <div class="form-div">
+                    <a href="/html/Entrar.html" class="btn-verde">Cadastrar</a>
+                </div>    
             </form>
         </Main>
         <!-- #endregion -->

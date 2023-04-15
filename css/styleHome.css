@@ -1,48 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap');
 
-body{
+body {
     margin: 0;
+    background-color: #fff;
     color: #419ED7;
     font-family: 'Averia Libre';
 }
+main{
+    background-color: #ADD4D0;
+    height: 100%;
+    width: 100%;
+}  
 .section-search{
-    padding: 10px;
-    width: 90%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
 }
-
 input[type="text"] {
     font-family: 'Averia Libre';
     height: 30px;
-    width: 100%;
+    width: 90%;
 }
-main{
-    background-color: #ADD4D0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;    
-}
+
 .section-grid{
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 20px;
-    padding-bottom: 30px;
     display: grid;
+    justify-content: center;
+    align-items: center;
     grid-template-columns: auto auto auto;
-    column-gap: 10px;
-    row-gap: 10px;
+    column-gap: 40px;
+    row-gap: 40px;
 }
 .card-vacina{
     background-color: #ffffff;
     border-radius: 10px;
-    display: block;
     padding: 10px;
+    display: flex;
     flex-direction: column;
+    gap: 10px;
+    width: 300px;    
 }
-
 .cabeca-card{
     display: flex;
     flex-direction: column;
+    gap: 10px;
     align-items: center;
+    justify-content: center;
+}
+.cabeca-card label{  
+    color: #ffffff;  
+    background-color: #3F92C5;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.cabeca-card h2{
+    width: 100%;
+    font-size: 32px;
+    margin: 0%;
+    height: 70px;
+    text-align: center;
+    word-wrap: break-word;
 }
 .vencimento-card{
     display: flex;
@@ -56,6 +73,8 @@ main{
     margin: 0%;
 }
 .section-btn{
+    display: flex;
+    justify-content: center;
     padding: 30px;
 }
 .btn-verde{

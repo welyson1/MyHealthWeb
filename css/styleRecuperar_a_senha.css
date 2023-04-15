@@ -1,24 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap');
-
-body{
+body {
     margin: 0;
-    background-color: #ADD4D0;
+    background-color: #fff;
+    color: #419ED7;
     font-family: 'Averia Libre';
 }
-
 main{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ADD4D0;
     height: 100vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    width: 50%;
+    gap: 30px;
+}
+.form-div{
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
+.form-div label {
+    font-size: 24px;
+    text-align: right;
+    width: 150px;
+    color: #FFFFFF;
+}
+input{
+    display: inline-block;
+    font-family: 'Averia Libre';
+    height: 40px;
+    width: 100%;
+    color: #3F92C5;
+    accent-color: #3F92C5;
+    font-size: 24px;
+    border: 1px solid #ccc;
+}
 
 .btn{
-    box-shadow: 0px 0px 1px 0px #419dd7;
-    background:linear-gradient(to bottom, #419dd7 5%, #419dd7 100%);
-    background-color:#419dd7;
+    box-shadow: 0px 0px 1px 0px #000000;
+    background:linear-gradient(to bottom, #37BD6D 5%, #37BD6D 100%);
+    background-color:#37BD6D;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;

@@ -1,49 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap');
 
-body{
+body {
     margin: 0;
+    background-color: #fff;
     color: #419ED7;
     font-family: 'Averia Libre';
 }
+main{
+    background-color: #ADD4D0;
+    height: 100vh;
+}
 
-form {
+form{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-.form-all {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-.form-group-label{
-    display: flex;
-    flex-direction: column;
+    padding-top: 30px;
     gap: 10px;
 }
-.form-group-input{
+.form-div{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
 }
-.form-group-input-radio{
+.form-div-radio{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.form-div label {
+    font-size: 24px;
+    text-align: right;
+    width: 210px;
+    color: #FFFFFF;
 }
 input{
-    font-size: 24px; 
-}
-label {
-    text-align: right;
+    display: inline-block;
+    font-family: 'Averia Libre';
+    height: 40px;
+    width: 40%;
+    color: #3F92C5;
+    accent-color: #3F92C5;
     font-size: 24px;
-    width: 40vh;
-    margin-right: 10px;
-}
-.log-senha{
-    text-align: left;
-    font-size: 20px;
-    color: red;        
+    border: 1px solid #ccc;
 }
 
-  
+input[type=radio]{
+    transform:scale(0.75);
+    border: none;
+}  
+.log-senha{
+    text-align: center;
+    font-size: 16px !important;
+    color: red !important;        
+}
+.btn-verde {
+    box-shadow: 0px 0px 1px 0px #000000;
+    border: 1px solid #37BD6D;
+    background-color: #37BD6D;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    font-family: 'Averia Libre';
+    padding: 10px 31px;
+    max-width: 200px;
+} 
   
