@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap');
 
 body {
-    margin: 0;
-    background-color: #fff;
+    margin: 0px;
+    background-color: #ADD4D0;
     color: #419ED7;
     font-family: 'Averia Libre';
 }
 main{
+    display: flex;
+    flex-direction: column;
     background-color: #ADD4D0;
-    height: 100%;
-    width: 100%;
 }  
 .section-search{
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 97%; /*Se colocar 100% ele deixa uma borda branca na direita*/
     padding: 20px;
 }
 input[type="text"] {
@@ -28,7 +28,7 @@ input[type="text"] {
     justify-content: center;
     align-items: center;
     grid-template-columns: auto auto auto;
-    column-gap: 40px;
+    column-gap: 40px; 
     row-gap: 40px;
 }
 .card-vacina{

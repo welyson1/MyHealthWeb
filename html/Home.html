@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <meta charset="utf-8">
         <title>Suas vacinas</title>
         <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
         <link rel="stylesheet" href="/css/styleHome.css">
         <link rel="stylesheet" href="/css/styleNav.css">
+        <script src="/javascript/scriptHome.js"></script>
     </head>
     <body>
         <nav>
@@ -28,79 +29,27 @@
 
             <!-- #region Grid com as vacinas cadastradas-->
             <section class="section-grid">
-                <div class="card-vacina">
+                <!-- <div class="card-vacina">
                     <div class="cabeca-card">
-                        <h2>Hepatite B</h2>
-                        <label for="dose">QTD dose</label>
-                        <time>11/03/2023</time>
+                        <h2 id="titulo-vacina">Hepatite B</h2>
+                        <label id="qtd-dose">QTD dose</label>
+                        <time id="data-dose">11/03/2023</time>
                     </div>                    
                     <div class="image-card">
-                        <img src="/img/image-comprovante.png">
+                        <img id="imagem-comprovante-car" src="/img/image-comprovante.png">
                     </div> 
                     <div class="vencimento-card">
-                        <h2>Não há próxima dose</h2>
+                        <h2 id="proxima-dose">Não há próxima dose</h2>
                     </div>
-                </div>
-                <div class="card-vacina">
-                    <div class="cabeca-card">
-                        <h2>BCG</h2>
-                        <label for="dose">QTD dose</label>
-                        <time>11/03/2023</time>
-                    </div>                    
-                    <div class="image-card">
-                        <img src="/img/image-comprovante.png">
-                    </div> 
-                    <div class="vencimento-card">
-                        <h2>Não há próxima dose</h2>
-                    </div>
-                </div>
-                <div class="card-vacina">
-                    <div class="cabeca-card">
-                        <h2>BCG</h2>
-                        <label for="dose">QTD dose</label>
-                        <time>11/03/2023</time>
-                    </div>                    
-                    <div class="image-card">
-                        <img src="/img/image-comprovante.png">
-                    </div> 
-                    <div class="vencimento-card">
-                        <h2>Não há próxima dose</h2>
-                    </div>
-                </div>
-                <div class="card-vacina">
-                    <div class="cabeca-card">
-                        <h2>BCG</h2>
-                        <label for="dose">QTD dose</label>
-                        <time>11/03/2023</time>
-                    </div>                    
-                    <div class="image-card">
-                        <img src="/img/image-comprovante.png">
-                    </div> 
-                    <div class="vencimento-card">
-                        <h2>Não há próxima dose</h2>
-                    </div>
-                </div>
-                <div class="card-vacina">
-                    <div class="cabeca-card">
-                        <h2>BCG</h2>
-                        <label for="dose">QTD dose</label>
-                        <time>11/03/2023</time>
-                    </div>                    
-                    <div class="image-card">
-                        <img src="/img/image-comprovante.png">
-                    </div> 
-                    <div class="vencimento-card">
-                        <h2>Não há próxima dose</h2>
-                    </div>
-                </div>
+                </div> -->
             </section>
-            <!-- #endregion -->
+            <!-- #endregion -->           
 
             <!-- #region Botão para cadastrar nova vacina-->
             <section class="section-btn">
-                <a class="btn-verde" href="/html/Nova_Vacina.html">Nova vacina</a>
+                <button id="btn" onclick="criar_vacina()">Nova vacina</button>
+                <!-- <a class="btn-verde" href="/html/Nova_Vacina.html">Nova vacina</a> -->
             </section>
             <!-- #endregion -->
         </Main>
     </body>
-</html>
