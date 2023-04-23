@@ -25,12 +25,12 @@
 
                 <div class="form-div">
                     <label for="dateNovoVacina">Data da vacina</label>
-                    <input type="date" name="novoDataVacina" id="dateNovoVacina">
+                    <input type="date" name="dateNovoVacina" id="dateNovoVacina">
                 </div>
 
                 <div class="form-div">
                     <label for="txtNovoNomeVacina">vacina</label>
-                    <input type="text" name="novoNomeVacina" id="txtNovoNomeVacina">
+                    <input type="text" name="txtNovoNomeVacina" id="txtNovoNomeVacina">
                 </div> 
 
                 <div class="form-div">
@@ -61,14 +61,18 @@
 
                 <div class="form-div">
                     <label for="dateProximaVacina">Próxima vacinação</label>
-                    <input type="date" name="novoDataVacina" id="dateNovoVacina">
+                    <input type="date" name="dateProximaVacina" id="dateProximaVacina">
                 </div>
                 
                 <section class="section-btn-cadastrar">
-                    <a href="/html/Home.html" class="btn-verde">Cadastrar</a>
+                    <!-- <button class="btn-verde" onclick="btnNovaVacina()">Cadastrar</button> -->
+                    <a class="btn-verde" id="formCadastro" onclick="cadastrarVacina()">Cadastrar</a>
                 </section>                                         
             </form>
         </main>
         <!-- #endregion -->
+        <script src="/javascript/vacina.js">
+            carregarTabelaVacinas()
+        </script>
     </body>
 </html>
