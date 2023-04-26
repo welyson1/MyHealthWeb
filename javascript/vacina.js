@@ -16,23 +16,9 @@ apagarJson.addEventListener("click", function() {
     console.log("Arquivo removido");
 });
 
-// Verifica se há dados armazenados no Web Storage e carrega para o array "vacinas"
-
-// function atualizarVacina(index, vacina) {
-//     vacinas[index] = vacina;
-
-//     // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
-//     localStorage.setItem("vacinas", JSON.stringify(vacinas));
-// }
-
-function removerVacina(card_vacina) {
-    let index = parseInt(card_vacina.dataset.index);
-    
-    vacinas.splice(index, 1);
-
-    // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
-    localStorage.setItem("vacinas", JSON.stringify(vacinas));
-    window.location.href = 'Home.html';
+function editarVacina(card_vacina) {
+    localStorage.setItem("indexVacina", JSON.stringify(card_vacina.dataset.index));
+    window.location.href = 'Editar_Vacina.html';    
 }
 
 // Função para adicionar uma nova vacina ao array
@@ -64,7 +50,7 @@ function carregarTabelaVacinas() {
         const card_vacina = document.createElement('div');
         card_vacina.dataset.index = index;
         card_vacina.setAttribute('class', 'card-vacina');  
-        card_vacina.setAttribute('onclick', 'removerVacina(this)')//Define o onclick no elemento para função remover    
+        card_vacina.setAttribute('onclick', 'editarVacina(this)')//Define o onclick no elemento para função remover    
         section_grid.appendChild(card_vacina);
 
         //Criando a parte superior do card de vacina
@@ -124,7 +110,7 @@ function carregarTabelaVacinas() {
 function cadastrarVacina() {
     let nome = document.getElementById("txtNovoNomeVacina").value;
     let data = document.getElementById("dateNovoVacina").value;
-    let doseSelecionada = document.querySelector('input[name="dose"]:checked').id;
+    let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
     let comprovante = document.getElementById("comprovante").value;
     let proximaData = document.getElementById("dateProximaVacina").value;
     adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData);
