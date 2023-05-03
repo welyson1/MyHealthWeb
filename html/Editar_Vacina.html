@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="/css/styleEditar_Vacina.css">
         <link rel="stylesheet" href="/css/styleNav.css">  
     </head>
-    <body>
+    <body id="body">
+             
         <!-- #region Cabeçalho -->
         <nav>
             <div id="div_logoEnome">
@@ -22,7 +23,7 @@
         <!-- #region Corpo -->
         <main class="form">   
             <section class="section-btn-excluir">             
-                <button class="btn-vermelho" onclick="removerVacina()">Excluir</button>
+                <button class="btn-vermelho" onclick="construirPopUp()">Excluir</button>
             </section>
 
             <div class="form-div">
@@ -71,6 +72,16 @@
             </section>
         </main>
         <!-- #endregion -->
+        
+        <!-- <div class="backgroud-modal"></div> 
+
+        <div class="modal">
+            <h2 id="mensagem-excluir">Tem certeza que deseja remover essa vacina?</h2>
+            <div class="container-btns">
+                <a id="btn-sim" onclick="removerVacina()">SIM</a>
+                <a id="btn-cancelar" onclick="destruirPopUp()">CANCELAR</a>
+            </div>
+        </div> -->
         <script src="/javascript/editarVacina.js"></script>
     </body>
 </html>

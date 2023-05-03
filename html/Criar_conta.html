@@ -19,37 +19,37 @@
         <Main>
             <form action="criarConta.php" method="post">
                 <div class="form-div">
-                    <label for="txtCriarNome">Nome completo</label>
+                    <label class="form-label" for="txtCriarNome">Nome completo</label>
                     <input type="text" name="criarNome" id="txtCriarNome">
                 </div>
                 <div class="form-div">
-                    <label>Genero</label>
+                    <label class="form-label" >Genero</label>
                     <div class="form-div-radio">
                         <input type="radio" name="genero" id="masculino">
-                        <label for="radioMasculino">Masculino</label>
+                        <label class="form-label" for="radioMasculino">Masculino</label>
 
                         <input type="radio" name="genero" id="feminino">
-                        <label for="radioFeminino">Feminino</label>
+                        <label class="form-label" for="radioFeminino">Feminino</label>
                     </div>                    
                 </div>
                 <div class="form-div">
-                    <label for="dateCriarDataNascimento">Data de nascimento</label>
+                    <label class="form-label" for="dateCriarDataNascimento">Data de nascimento</label>
                     <input type="date" name="criarDataNascimento" id="dateCriarDataNascimento">
                 </div>
                 <div class="form-div">
-                    <label for="txtCriarEmail">E-mail</label>
+                    <label class="form-label" for="txtCriarEmail">E-mail</label>
                     <input type="text" name="criarEmail" id="txtCriarEmail">
                 </div>
                 <div class="form-div">
-                    <label for="pwCriarSenha">Senha</label>
+                    <label class="form-label" for="pwCriarSenha">Senha</label>
                     <input type="password" name="criarSenha" id="pwCriarSenha">
                 </div>
                 <div class="form-div">
-                    <label for="pwRepetirCriarSenha">Repita a senha</label>
+                    <label class="form-label" for="pwRepetirCriarSenha">Repita a senha</label>
                     <input type="password" name="repetirCriarSenha" id="pwRepetirCriarSenha">
                 </div>
                 <div class="form-div">
-                    <label class="log-senha">Senha não confere</label>
+                    <label id="log-senha">Senha não confere</label>
                 </div>
                 <div class="form-div">
                     <a href="/html/Entrar.html" class="btn-verde">Cadastrar</a>
@@ -57,5 +57,6 @@
             </form>
         </Main>
         <!-- #endregion -->
+        <script src="/javascript/cadastro.js"></script>
     </body>
 </html>
