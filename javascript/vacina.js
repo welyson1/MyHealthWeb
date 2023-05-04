@@ -8,6 +8,13 @@ window.onload = () => {
 
 // Array que irá armazenar todas as vacinas cadastradas
 let vacinas = [];
+let baseDoses = {
+    1:"1a. dose",
+    2:"2a. dose",
+    3:"3a. dose",
+    4:"Reforço",
+    5:"Dose Única"
+}
 
 // Apaga o arquivo JSON do localStorage
 let apagarJson = document.getElementById("apagarJson");
@@ -74,7 +81,7 @@ function criadorCard(index) {
     cabeca_card.appendChild(data_dose);
     //Preenchendo com informações
     titulo_vacina.innerText = vacinas[index].nome; //-------
-    qtd_dose.innerText = vacinas[index].doseSelecionada; //--------
+    qtd_dose.innerText = baseDoses[vacinas[index].doseSelecionada];//--------
     data_dose.innerText = vacinas[index].data //-------
 
     //Criação do modelo de para colocar a imagem
@@ -105,6 +112,11 @@ function criadorCard(index) {
     proxima_dose.innerText = vacinas[index].proximaData; //--------
 
     return card_vacina
+}
+
+function carregarComprovante() {
+    let img_comprovante = document.getElementById("img-comprovante")
+    img_comprovante.setAttribute("src", vacinas[index].comprovante)  
 }
 
 // Função para lidar com a submissão do formulário de cadastro de vacinas
