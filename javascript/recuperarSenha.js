@@ -1,4 +1,5 @@
 import { auth } from "../firebase/config.js";
+//Mudar link do modulo
 import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
 const getEmail = () => {
