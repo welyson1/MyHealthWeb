@@ -1,5 +1,5 @@
 import { auth } from "../firebase/config.js";
-import { createUser } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
 window.onload = () => {
     const senhaInput = document.getElementById("pwCriarSenha");
@@ -11,6 +11,26 @@ window.onload = () => {
     confirmarSenhaInput.addEventListener("keyup",() => {
         validarSenha(senhaInput, confirmarSenhaInput)
     });
+}
+
+const getEmail = () => {
+    return document.getElementById("txtCriarEmail").value
+}
+
+const getSenha = () => {
+    return document.getElementById("pwCriarSenha").value
+}
+
+//Função que cadastra no firebase
+const cadastrarUsuario = () => {
+    createUserWithEmailAndPassword(auth, getEmail(), getSenha())
+    //Tratar erros
+    .then((result) => {
+        console.log("Sucesso");
+    })
+    .catch((error) => {
+        console.log("Erro ao criar");
+    })
 }
 
 function validarSenha(senhaInput, confirmarSenhaInput) {
