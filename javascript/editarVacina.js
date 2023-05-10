@@ -83,6 +83,11 @@ function carregarInformacoes() {
             a.setAttribute("checked", true)
         }
     }
+    let proximaVacinaEditar = document.getElementById("proximaVacinaEditar");
+    proximaVacinaEditar.value = vacinas[indexVacina].proximaData;
+    
+    let img_comprovante = document.getElementById("img-comprovante")
+    img_comprovante.setAttribute("src", vacinas[index].comprovante)
 }
 
 // Função para lidar com a submissão do formulário de cadastro de vacinas

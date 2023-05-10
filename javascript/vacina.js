@@ -1,5 +1,4 @@
-window.onload = () => {       
-
+window.onload = () => {
     if (localStorage.getItem("vacinas") !== null) {
         vacinas = JSON.parse(localStorage.getItem("vacinas"));
     } 
@@ -15,13 +14,6 @@ let baseDoses = {
     4:"Reforço",
     5:"Dose Única"
 }
-
-// Apaga o arquivo JSON do localStorage
-let apagarJson = document.getElementById("apagarJson");
-apagarJson.addEventListener("click", function() {    
-    localStorage.removeItem("vacinas");
-    console.log("Arquivo removido");
-});
 
 function editarVacina(card_vacina) {
     localStorage.setItem("indexVacina", JSON.stringify(card_vacina.dataset.index));
@@ -116,8 +108,26 @@ function criadorCard(index) {
 
 function carregarComprovante() {
     let img_comprovante = document.getElementById("img-comprovante")
-    img_comprovante.setAttribute("src", vacinas[index].comprovante)  
+    img_comprovante.setAttribute("src", vacinas[index].comprovante)
 }
+
+//Elemento de input
+const imagemInput = document.getElementById("comprovante");
+//Elemento de imagem
+const imagemPreview = document.getElementById("img-comprovante");
+//Ouvinte para o input de imagem
+imagemInput.addEventListener("change", function() {
+  const imagemSelecionada = imagemInput.files[0];
+  const leitorDeArquivo = new FileReader();
+
+  leitorDeArquivo.addEventListener("load", function() {
+    imagemPreview.setAttribute("src", leitorDeArquivo.result);
+  });
+
+  if (imagemSelecionada) {
+    leitorDeArquivo.readAsDataURL(imagemSelecionada);
+  }
+});
 
 // Função para lidar com a submissão do formulário de cadastro de vacinas
 function cadastrarVacina() {

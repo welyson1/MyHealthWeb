@@ -81,8 +81,7 @@ input[type=file]{
 }
 
 .btn-verde {
-  box-shadow: 0px 0px 1px 0px #000000;
-  border: 1px solid #37BD6D;
+  box-shadow: 0px 1px 5px -1px #000000;
   background-color: #37BD6D;
   display: inline-block;
   cursor: pointer;
@@ -91,4 +90,8 @@ input[type=file]{
   font-family: 'Averia Libre';
   padding: 10px 31px;
   max-width: 200px;
+}
+
+#img-comprovante{
+  height: 200px;
 }
