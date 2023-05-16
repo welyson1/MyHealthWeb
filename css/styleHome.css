@@ -88,3 +88,8 @@ input[type="text"] {
     padding:10px 31px;
     text-decoration:none;
 }
+
+#imagem-comprovante-car{
+    width: 300px;
+    height: 150px;
+}

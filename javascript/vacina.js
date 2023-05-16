@@ -15,6 +15,15 @@ let baseDoses = {
     5:"Dose Única"
 }
 
+let comprovanteVacinas = {
+    0:"/img/vacina.gif",
+    1:"/img/Comprovante.jpg",
+    2:"/img/5ca0b3929a665.jpeg",
+    3:"/img/vacinado-alligator.gif",
+    4:"/img/bota.jpg",
+    5:"/img/botaa.png"
+}
+
 function editarVacina(card_vacina) {
     localStorage.setItem("indexVacina", JSON.stringify(card_vacina.dataset.index));
     window.location.href = 'Editar_Vacina.html';    
@@ -85,7 +94,7 @@ function criadorCard(index) {
     const imagem_comprovante_car = document.createElement('img');
     //Definição dos atributos do elemento de img
     imagem_comprovante_car.setAttribute('id', 'imagem-comprovante-car');
-    imagem_comprovante_car.setAttribute('src', '/img/image-comprovante.png'); //-------
+    imagem_comprovante_car.setAttribute('src', comprovanteVacinas[Math.floor(Math.random() * 6)]); //-------
     //Colocando como filho da div image-card
     image_card.appendChild(imagem_comprovante_car);
 
@@ -106,10 +115,10 @@ function criadorCard(index) {
     return card_vacina
 }
 
-function carregarComprovante() {
-    let img_comprovante = document.getElementById("img-comprovante")
-    img_comprovante.setAttribute("src", vacinas[index].comprovante)
-}
+// function carregarComprovante() {
+//     let img_comprovante = document.getElementById("img-comprovante")
+//     img_comprovante.setAttribute("src", vacinas[index].comprovante)
+// }
 
 //Elemento de input
 const imagemInput = document.getElementById("comprovante");
@@ -137,5 +146,4 @@ function cadastrarVacina() {
     let comprovante = document.getElementById("comprovante").value;
     let proximaData = document.getElementById("dateProximaVacina").value;
     adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData);
-    console.log("Função de cadastro");
 }

@@ -90,13 +90,31 @@ function carregarInformacoes() {
     img_comprovante.setAttribute("src", vacinas[index].comprovante)
 }
 
+//Elemento de input
+const imagemInput = document.getElementById("comprovante");
+//Elemento de imagem
+const imagemPreview = document.getElementById("img-comprovante");
+//Ouvinte para o input de imagem
+imagemInput.addEventListener("change", function() {
+  const imagemSelecionada = imagemInput.files[0];
+  const leitorDeArquivo = new FileReader();
+
+  leitorDeArquivo.addEventListener("load", function() {
+    imagemPreview.setAttribute("src", leitorDeArquivo.result);
+  });
+
+  if (imagemSelecionada) {
+    leitorDeArquivo.readAsDataURL(imagemSelecionada);
+  }
+});
+
 // Função para lidar com a submissão do formulário de cadastro de vacinas
 function getVacina() {
     let nome = document.getElementById("txtEditarNomeVacina").value;
     let data = document.getElementById("dateEditarVacina").value;
     let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
     let comprovante = document.getElementById("comprovante").value;
-    let proximaData = document.getElementById("dateEditarVacina").value;
+    let proximaData = document.getElementById("proximaVacinaEditar").value;
     let vacina = {
         nome: nome,
         data: data,
