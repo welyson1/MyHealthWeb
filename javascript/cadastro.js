@@ -36,18 +36,18 @@ const cadastrarUsuario = () => {
     //Tratar erros
     .then((result) => {
         console.log("Sucesso");
-        const colecao = collection(db, "usuarios")
-        const doc = {
-            nome: getNome(),
-            genero: getGenero()
-        }
-        addDoc(colecao, doc)
-            .then((result) =>{
-                console.log("Cadastrado");
-            })
-            .catch((error) => {
-                console.log("Erro");
-            })
+        // const colecao = collection(db, "usuarios")
+        // const doc = {
+        //     nome: getNome(),
+        //     genero: getGenero()
+        // }
+        // addDoc(colecao, doc)
+        //     .then((result) =>{
+        //         console.log("Cadastrado");
+        //     })
+        //     .catch((error) => {
+        //         console.log("Erro");
+        //     })
     })
     .catch((error) => {
         console.log("Erro ao criar");
@@ -62,3 +62,7 @@ function validarSenha(senhaInput, confirmarSenhaInput) {
         labelElement.style.display = "block";           
     }
 }
+
+document.getElementById('btn_criarConta').addEventListener('click', () => {
+    cadastrarUsuario()
+})

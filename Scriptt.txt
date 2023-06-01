@@ -1,0 +1,14 @@
+Cadastrar conta do zero
+Redefinir senha
+Login
+Cadastrar 3 vacinas
+Editar uma vacina
+Filtragem
+Apagar a vacina que ele escolher
+Logout e tentar acesso ao home.html
+
+Abrir outro navegador e logar com a mesma conta
+deixar os dois navegadores lado a lado
+apagar uma vacina em um navegador e refletir em outro sem usar F5
+
+função Onsnapshot faz a consulta e fica monitorando

@@ -7,6 +7,7 @@ const getEmail = () => {
 }
 
 const recuperarSenha = () => {
+    console.log('entrou')
     sendPasswordResetEmail(auth, getEmail())
     .then(() => {
         console.log("Email de redefinição enviado");
@@ -17,3 +18,6 @@ const recuperarSenha = () => {
 }
 
 //Implementar o click do botão
+document.getElementById("btn_redefinirSenha").addEventListener('click', () => {
+    recuperarSenha();
+})
