@@ -12,3 +12,17 @@ deixar os dois navegadores lado a lado
 apagar uma vacina em um navegador e refletir em outro sem usar F5
 
 função Onsnapshot faz a consulta e fica monitorando
+
+quando deslogar, ligar o arquivo config
+
+apresentação dois:
+criar usuario do zero
+login
+cadastrar 3 vacinas
+editar vacina, mudar nome
+filtrar vacinas por nome
+explicar como é feito a Filtragem
+pediu para inspecionar os elementos para descobrir a gambiarra da busca
+(usar um filter do javascript, não fazer mais requisições)
+apagar vacina e atualizar a lista
+Logout e tentar acessar a home

@@ -17,7 +17,7 @@ let baseDoses = {
 
 function editarVacina(card_vacina) {
     localStorage.setItem("indexVacina", JSON.stringify(card_vacina.dataset.index));
-    window.location.href = 'Editar_Vacina.html';    
+    window.location.href = 'Editar_Vacina.html'; 
 }
 
 // Função para adicionar uma nova vacina ao array
@@ -37,8 +37,7 @@ function adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData) 
 // Função para carregar a tabela de vacinas com as vacinas cadastradas
 function carregarTabelaVacinas() {
     //Seleção da section com propriedade grid que irão os cards de vacina
-    const section_grid = document.querySelector('section.section-grid');   
-    
+    const section_grid = document.querySelector('section.section-grid');     
 
     for (let index = 0; index < vacinas.length; index++) {     
         section_grid.appendChild(criadorCard(index));  

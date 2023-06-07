@@ -48,9 +48,13 @@ const cadastrarUsuario = () => {
         //     .catch((error) => {
         //         console.log("Erro");
         //     })
+        window.location.href = "Entrar.html";
     })
     .catch((error) => {
-        console.log("Erro ao criar");
+        // Tratamento de erros
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.error("Erro de login:", errorCode, errorMessage);
     })
 }
 
@@ -59,7 +63,7 @@ function validarSenha(senhaInput, confirmarSenhaInput) {
     if (senhaInput.value == confirmarSenhaInput.value) {
         labelElement.style.display = "none";
     } else {
-        labelElement.style.display = "block";           
+        labelElement.style.display = "block";        
     }
 }
 
