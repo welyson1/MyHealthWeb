@@ -1,6 +1,7 @@
 import { auth, db } from "../firebase/config.js";
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+import { collection, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+
 
 window.onload = () => {
     const senhaInput = document.getElementById("pwCriarSenha");
@@ -27,31 +28,55 @@ const getNome = () => {
 }
 
 const getGenero = () => {
-    return document.getElementById("pwCriarSenha").value
+    return document.querySelector('input[name="genero"]:checked').value;
+}
+
+const getDataNascimento = () => {
+    return document.getElementById("dateCriarDataNascimento").value
 }
 
 //Função que cadastra no firebase
-const cadastrarUsuario = () => {
+const cadastrarUsuario = () => {    
+    // Criar a conta
     createUserWithEmailAndPassword(auth, getEmail(), getSenha())
-    //Tratar erros
-    .then((result) => {
-        console.log("Sucesso");
-        // const colecao = collection(db, "usuarios")
-        // const doc = {
-        //     nome: getNome(),
-        //     genero: getGenero()
-        // }
-        // addDoc(colecao, doc)
-        //     .then((result) =>{
-        //         console.log("Cadastrado");
-        //     })
-        //     .catch((error) => {
-        //         console.log("Erro");
-        //     })
-        window.location.href = "Entrar.html";
+    // Criar o documento na coleção para armazenas as informações
+    .then((resultUser) => {
+        // Pega o UUID da conta recem criada
+        const uidUser = resultUser.user.uid;
+
+        // Log
+        console.log(uidUser);
+
+        // Define a coleção
+        const colecao = collection(db, "usuarios")
+
+        // Personaliza a KEY do documento com a UUID do usuario
+        const docRef = doc(colecao, uidUser);
+
+        // Objeto com as informações
+        const data = {
+            nome: getNome(),
+            genero: getGenero(),
+            dataNascimento: getDataNascimento()
+        }
+
+        // Criação do documento na coleção com a KEY personalizada
+        setDoc(docRef, data)
+            .then((result) =>{
+                // Log
+                console.log("Cadastrado");
+
+                // Direcionando para tela entrar/login
+                window.location.href = "Entrar.html";
+            })
+            .catch((error) => {
+                // Log
+                console.log("Erro" + error);
+            })
+       
     })
     .catch((error) => {
-        // Tratamento de erros
+        // Logs
         var errorCode = error.code;
         var errorMessage = error.message;
         console.error("Erro de login:", errorCode, errorMessage);
