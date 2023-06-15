@@ -1,8 +1,37 @@
+import { auth } from "../firebase/config.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+
 window.onload = () => {
     if (localStorage.getItem("vacinas") !== null) {
         vacinas = JSON.parse(localStorage.getItem("vacinas"));
     } 
-    carregarTabelaVacinas()
+    carregarTabelaVacinas();
+
+    // onAuthStateChanged(auth, (currentUser) => {
+    //     if (currentUser) {
+    //         // Recupera as informações do usuário logado
+    //         const user = auth.currentUser;
+    //         const uid = user.uid;
+    //         const displayName = user.displayName;
+    //         const email = user.email;
+
+    //         // Use as informações do usuário conforme necessário
+    //         console.log('Usuário logado:');
+    //         console.log('UID: ' + uid);
+    //         console.log('Nome de exibição: ' + displayName);
+    //         console.log('Email: ' + email);
+    //     } else {
+    //         window.location.href = "Entrar.html";
+    //     }
+    // });
+
+    if (localStorage.getItem("userID") !== null) {
+        const userID = localStorage.getItem("userID");
+        console.log("UserID do usuário logado:", userID);
+    } else {
+        console.log('Nenhum usuário logado.');
+    }
+
 }
 
 // Array que irá armazenar todas as vacinas cadastradas

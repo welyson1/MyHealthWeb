@@ -1,6 +1,5 @@
-import { db } from "../firebase/config.js";
+import { auth } from "../firebase/config.js";
 import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
 const getEmail = () => {
     return document.getElementById("txtEmailLogin").value
@@ -9,7 +8,9 @@ const getEmail = () => {
 const getSenha = () => {
     return document.getElementById("pwSenha").value
 }
-const auth = getAuth();
+
+// const auth = getAuth();
+
 // Função de login
 function login() {
     //Salva a sessão logada na guia
@@ -20,7 +21,27 @@ function login() {
         .then((userCredential) => {
             // Logs
             const user = userCredential.user;
-            console.log("Usuário logado:", user);
+            const uid = user.uid;
+
+            // Salva o UID do usuário logado no localStorage
+            localStorage.setItem("userID", uid);
+
+            // Verifica se há um usuário logado
+            if (auth.currentUser) {
+                // Recupera as informações do usuário logado
+                const user = auth.currentUser;
+                const uid = user.uid;
+                const displayName = user.displayName;
+                const email = user.email;
+            
+                // Use as informações do usuário conforme necessário
+                console.log('Usuário logado:');
+                console.log('UID: ' + uid);
+                console.log('Nome de exibição: ' + displayName);
+                console.log('Email: ' + email);
+            } else {
+                console.log('Nenhum usuário logado.');
+            }
 
             //Envia para tela Home
             window.location.href = "Home.html";
