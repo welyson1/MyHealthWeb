@@ -1,5 +1,6 @@
-import { auth } from "../firebase/config.js";
+import { auth, db } from "../firebase/config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { collection, addDoc, doc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
 window.onload = () => {
     if (localStorage.getItem("vacinas") !== null) {
@@ -24,14 +25,17 @@ window.onload = () => {
     //         window.location.href = "Entrar.html";
     //     }
     // });
+}
 
+function idUser() {
+    // Testa se existe um ID de usuario que esta sendo usado como KEY do documento no localStorage
     if (localStorage.getItem("userID") !== null) {
-        const userID = localStorage.getItem("userID");
-        console.log("UserID do usuário logado:", userID);
+        // Retorna o ID do documento
+        return localStorage.getItem("userID");
     } else {
+        // Log
         console.log('Nenhum usuário logado.');
-    }
-
+    }       
 }
 
 // Array que irá armazenar todas as vacinas cadastradas
@@ -49,6 +53,7 @@ function editarVacina(card_vacina) {
     window.location.href = 'Editar_Vacina.html'; 
 }
 
+// 000000000000000000000000 Funão que talvez possa ser descartada 00000000000000000000000000000000
 // Função para adicionar uma nova vacina ao array
 function adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData) {
     let vacina = {
@@ -60,77 +65,95 @@ function adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData) 
     };
     vacinas.push(vacina);
     localStorage.setItem("vacinas", JSON.stringify(vacinas));
+
     window.location.href = 'Home.html';
 }
+// 000000000000000000000000 Funão que talvez possa ser descartada 00000000000000000000000000000000
 
 // Função para carregar a tabela de vacinas com as vacinas cadastradas
 function carregarTabelaVacinas() {
     //Seleção da section com propriedade grid que irão os cards de vacina
     const section_grid = document.querySelector('section.section-grid');     
 
-    for (let index = 0; index < vacinas.length; index++) {     
+    for (let index = 0; index < vacinas.length; index++) {
+        // Função que retorna o card criado para o appendChild
         section_grid.appendChild(criadorCard(index));  
     }
 }
 
 function criadorCard(index) {
-    //Criação do molde do card dentro da section
+
+    // Criação do molde do card dentro da section
     const card_vacina = document.createElement('div');
     card_vacina.dataset.index = index;
     card_vacina.setAttribute('class', 'card-vacina');  
     card_vacina.setAttribute('onclick', 'editarVacina(this)') // this passa a referencia do elemento clicado
 
-    //Criando a parte superior do card de vacina
+    // Criando a parte superior do card de vacina
     const cabeca_card = document.createElement('div');
     cabeca_card.dataset.index = index;
     cabeca_card.setAttribute('class', 'cabeca-card');
     card_vacina.appendChild(cabeca_card);
-    //preenchendo a parte superior do card com informações
-    //Titulo
+
+
+    // Preenchendo a parte superior do card com informações
+    // Titulo
     const titulo_vacina = document.createElement('h2');
     titulo_vacina.setAttribute('id', 'titulo-vacina');
-    //Quantidade da dose
+
+    // Quantidade da dose
     const qtd_dose = document.createElement('label');
     qtd_dose.setAttribute('id', 'qtd-dose');
-    //Data da dose
+
+    // Data da dose
     const data_dose = document.createElement('time');
     data_dose.setAttribute('id', 'data-dose');
-    //Colocar o titulo, label e data como filho do elemento cabeca-card
+    
+    // Colocar o titulo, label e data como filho do elemento cabeca-card
     cabeca_card.appendChild(titulo_vacina);
     cabeca_card.appendChild(qtd_dose);
     cabeca_card.appendChild(data_dose);
-    //Preenchendo com informações
+    
+    // Preenchendo com informações
     titulo_vacina.innerText = vacinas[index].nome; //-------
     qtd_dose.innerText = baseDoses[vacinas[index].doseSelecionada];//--------
     data_dose.innerText = vacinas[index].data //-------
 
-    //Criação do modelo de para colocar a imagem
+    // Criação do modelo de para colocar a imagem
     const image_card = document.createElement('div');
     image_card.dataset.index = index;
     image_card.setAttribute('class', 'image-card');
     card_vacina.appendChild(image_card);
-    //Criação do elemento de imagem
+
+    // Criação do elemento de imagem
     const imagem_comprovante_car = document.createElement('img');
-    //Definição dos atributos do elemento de img
+
+    // Definição dos atributos do elemento de img
     imagem_comprovante_car.setAttribute('id', 'imagem-comprovante-car');
     imagem_comprovante_car.setAttribute('src', '/img/image-comprovante.png'); //-------
-    //Colocando como filho da div image-card
+
+    // Colocando como filho da div image-card
     image_card.appendChild(imagem_comprovante_car);
 
-    //Criação do modelo de vencimento-card
+    // Criação do modelo de vencimento-card
     const vencimento_card = document.createElement('div');
     vencimento_card.dataset.index = index;
     vencimento_card.setAttribute('class', 'vencimento-card');
-    //Colocando como filho do card-vacina
+
+    // Colocando como filho do card-vacina
     card_vacina.appendChild(vencimento_card);
-    //Criando o elemento de texto
+
+    // Criando o elemento de texto
     const proxima_dose = document.createElement('h2')
-    proxima_dose.setAttribute('id', 'proxima-dose')                    
-    //Definindo o elemento texto como filho
+    proxima_dose.setAttribute('id', 'proxima-dose')
+
+    // Definindo o elemento texto como filho
     vencimento_card.appendChild(proxima_dose)
-    //Preenchendo com informações
+
+    // Preenchendo com informações
     proxima_dose.innerText = vacinas[index].proximaData; //--------
 
+    // Retorna o card criado
     return card_vacina
 }
 
@@ -164,8 +187,41 @@ function cadastrarVacina() {
     let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
     let comprovante = document.getElementById("comprovante").value;
     let proximaData = document.getElementById("dateProximaVacina").value;
-    adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData);
-    console.log("Função de cadastro");
+    
+    // ---------------- Firebase ---------------------
+    // Variavel que recebe o retorno da função que pega o ID do usuario
+    const userID = idUser();
+
+    // Define a subcoleção
+    const colecao = collection(db, `usuarios/${userID}/vacinas`)
+
+    // Define o objeto com os dados
+    const dados = {
+        nome: nome,
+        data: data,
+        doseSelecionada: doseSelecionada,
+        comprovante: comprovante,
+        proximaData: proximaData
+    }
+
+    // Faz a requisição
+    addDoc(colecao, dados)
+        .then((result) => {
+            // Log
+            console.log("Vacina cadastrada" + result);
+
+            // Função que cadastra no array (Provisorio)
+            adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData);
+        })
+        .catch((erro) => {
+            // Log
+            console.log("Erro ao cadastrar" + erro);
+        })    
 }
+
+// Click do botão cadastrar
+document.getElementById('formCadastro').addEventListener('click', () => {
+    cadastrarVacina()
+})
 
   
