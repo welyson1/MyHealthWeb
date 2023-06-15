@@ -15,5 +15,9 @@ function logout() {
 
 // Chamar a função de logout quando necessário, por exemplo, quando um botão de logout for clicado
 document.getElementById("btnSair").addEventListener("click", () => {
+  // Remove a chave "userID" do localStorage
+  localStorage.removeItem("userID");
+
+  // Função para fazer a desconexão
   logout();
 }); 

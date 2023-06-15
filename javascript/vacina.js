@@ -78,7 +78,7 @@ function criadorCard(index) {
     const card_vacina = document.createElement('div');
     card_vacina.dataset.index = index;
     card_vacina.setAttribute('class', 'card-vacina');  
-    card_vacina.setAttribute('onclick', 'editarVacina(this)')//Define o onclick no elemento para função remover 
+    card_vacina.setAttribute('onclick', 'editarVacina(this)') // this passa a referencia do elemento clicado
 
     //Criando a parte superior do card de vacina
     const cabeca_card = document.createElement('div');
@@ -167,3 +167,5 @@ function cadastrarVacina() {
     adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData);
     console.log("Função de cadastro");
 }
+
+  
