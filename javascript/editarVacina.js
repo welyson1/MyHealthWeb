@@ -1,16 +1,28 @@
-window.onload = () => {       
+import { db } from "../firebase/config.js";
+import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+window.onload = () => { 
 
+    if (localStorage.getItem("indexVacina") !== null) {
+        indexVacina = localStorage.getItem("indexVacina")
+    }
     if (localStorage.getItem("vacinas") !== null) {
         vacinas = JSON.parse(localStorage.getItem("vacinas"));
-    } 
-    if (localStorage.getItem("indexVacina") !== null) {
-        indexVacina = JSON.parse(localStorage.getItem("indexVacina"));
     }
-    carregarInformacoes();
+    
+    // if (localStorage.getItem("indexFirebase") !== null) {
+    //     indexFirebase = localStorage.getItem("indexFirebase")
+    // }
+    // if (localStorage.getItem("userID") !== null) {
+    //     userID = localStorage.getItem("userID")
+    // }
+
+    carregarInformacoes();   
 }
 
 let vacinas = [];
 let indexVacina = null;
+// let indexFirebase = null;
+// let userID = null;
 
 function removerVacina() {
     // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
@@ -62,7 +74,6 @@ function destruirPopUp() {
 
 //Verifica se há dados armazenados no Web Storage e carrega para o array "vacinas"
 function atualizarVacina() {
-    console.log("Entrou");
     vacinas[indexVacina] = getVacina();
 
     // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
@@ -71,6 +82,8 @@ function atualizarVacina() {
 }
 
 function carregarInformacoes() {
+    console.log(vacinas);
+    console.log(indexVacina);
     let dateEditarVacina = document.getElementById("dateEditarVacina");
     dateEditarVacina.value = vacinas[indexVacina].data;
 
@@ -97,6 +110,9 @@ function getVacina() {
     let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
     let comprovante = document.getElementById("comprovante").value;
     let proximaData = document.getElementById("dateEditarVacina").value;
+
+    // const docRef = doc(db, `usuarios/${userID}/vacinas`, indexFirebase)
+
     let vacina = {
         nome: nome,
         data: data,
@@ -104,5 +120,8 @@ function getVacina() {
         comprovante: comprovante,
         proximaData: proximaData
     };
+
+    // updateDoc(docRef, vacina).then((result) => { console.log("Documento alterado"); }).catch((erro) => { "Erro ao alterar" })
+
     return vacina
 }

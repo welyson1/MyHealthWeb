@@ -1,5 +1,4 @@
 import { auth, db } from "../firebase/config.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 import { collection, addDoc, doc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
 window.onload = () => {
@@ -29,11 +28,6 @@ let baseDoses = {
     3:"3a. dose",
     4:"Reforço",
     5:"Dose Única"
-}
-
-function editarVacina(idDoElementoClicado) {
-    localStorage.setItem("indexVacina", idDoElementoClicado);
-    window.location.href = 'Editar_Vacina.html'; 
 }
 
 function carregarArray() {
@@ -106,11 +100,11 @@ function criadorCard(index) {
 
     // Criação do molde do card dentro da section
     const card_vacina = document.createElement('div');
-    // card_vacina.dataset.index = index;
+    card_vacina.dataset.index = index;
     card_vacina.setAttribute('id', vacinas[index].docID);  
     card_vacina.setAttribute('class', 'card-vacina');  
     card_vacina.addEventListener('click', function(event) {
-        pegarValorDoId(event);
+        editarVacina(event);
     });
 
     // Criando a parte superior do card de vacina
@@ -246,12 +240,21 @@ document.getElementById('formCadastro').addEventListener('click', () => {
     cadastrarVacina()
 })
 
-function pegarValorDoId(event) {
+function editarVacina(event) {
+    // Paga o item que foi clicado
     const elementoClicado = event.currentTarget;
-    const idDoElemento = elementoClicado.id;
-    
-    // Função que edita
-    editarVacina(idDoElemento)
+
+    // Salva a KEY do documento clicado que esta armazenado no atributo ID do elemento
+    const indexFirebase = elementoClicado.id;
+
+    // Salva a KEY do documento clicado
+    localStorage.setItem("indexFirebase", indexFirebase);
+
+    // Salva o ID do clicado
+    localStorage.setItem("indexVacina", JSON.stringify(event.currentTarget.dataset.index));    
+
+    // Chama a tela de editar vacina
+    window.location.href = 'Editar_Vacina.html';
 }
 
   
