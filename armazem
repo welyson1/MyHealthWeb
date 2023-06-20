@@ -6,10 +6,9 @@ window.onload = () => {
         vacinas = JSON.parse(localStorage.getItem("vacinas"));
     }
 
-    // Ouvinte do campo de busca
     const search_vacina = document.getElementById("search_vacina");
     search_vacina.addEventListener("keyup", () => {
-        construirGridVacinas()
+        filtrarVacinas()
     });
 
     carregarArray()
@@ -90,25 +89,26 @@ function carregarArray() {
      
 }
 
-function construirGridVacinas() {    
-    console.log("Construtor");
+function construirGridVacinas(vacinas) {
+    //Seleção da section com propriedade grid que irão os cards de vacina
     const section_grid = document.querySelector('section.section-grid');
-
-    // Limpa o conteúdo da section antes de reconstruir
     section_grid.innerHTML = '';
 
-    const searchTerm = document.getElementById('search_vacina').value.toLowerCase();
-
     for (let index = 0; index < vacinas.length; index++) {
-        const nomeVacina = vacinas[index].nome.toLowerCase();
-        
-        if (nomeVacina.includes(searchTerm)) {
-            section_grid.appendChild(criadorCard(index));
-        }
+        // Função que retorna o card criado para o appendChild
+        section_grid.appendChild(criadorCard(index, vacinas));
     }
 }
 
-function criadorCard(index) {
+function filtrarVacinas() {
+    const searchTerm = document.getElementById('search_vacina').value.toLowerCase();
+
+    const vacinasFiltradas = vacinas.filter(vacina => vacina.nome.toLowerCase().includes(searchTerm));
+
+    construirGridVacinas(vacinasFiltradas);
+}
+
+function criadorCard(index, vacinas) {
 
     // Criação do molde do card dentro da section
     const card_vacina = document.createElement('div');

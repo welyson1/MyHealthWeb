@@ -1,34 +1,48 @@
 import { db } from "../firebase/config.js";
-import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
-window.onload = () => { 
+import { doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
-    if (localStorage.getItem("indexVacina") !== null) {
-        indexVacina = localStorage.getItem("indexVacina")
-    }
+window.onload = () => {       
+
     if (localStorage.getItem("vacinas") !== null) {
         vacinas = JSON.parse(localStorage.getItem("vacinas"));
+    } 
+    if (localStorage.getItem("indexVacina") !== null) {
+        indexVacina = JSON.parse(localStorage.getItem("indexVacina"));
     }
-    
-    // if (localStorage.getItem("indexFirebase") !== null) {
-    //     indexFirebase = localStorage.getItem("indexFirebase")
-    // }
-    // if (localStorage.getItem("userID") !== null) {
-    //     userID = localStorage.getItem("userID")
-    // }
-
-    carregarInformacoes();   
+    if (localStorage.getItem("indexFirebase") !== null) {
+        indexFirebase = localStorage.getItem("indexFirebase")
+    }
+    if (localStorage.getItem("userID") !== null) {
+        userID = localStorage.getItem("userID")
+    }
+    carregarInformacoes();
 }
 
 let vacinas = [];
 let indexVacina = null;
-// let indexFirebase = null;
-// let userID = null;
+let indexFirebase = null;
+let userID = null;
 
 function removerVacina() {
-    // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
-    vacinas.splice(indexVacina,1)
-    localStorage.setItem("vacinas", JSON.stringify(vacinas));    
-    window.location.href = 'Home.html';
+    
+    // Passa areferenciado documento a ser atualizado
+    const docRef = doc(db, `usuarios/${userID}/vacinas`, indexFirebase)
+
+    // Função do fire base que exclui o documento do banco de dados
+    deleteDoc(docRef)
+    .then((result) => {
+        // Log
+        console.log("Excluido" + result);
+
+        // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
+        vacinas.splice(indexVacina,1)
+        localStorage.setItem("vacinas", JSON.stringify(vacinas));    
+        window.location.href = 'Home.html';
+    })
+    .catch((erro) => {
+        // Log
+        console.log("Erro") + erro;
+    })    
 }
 
 function construirPopUp() {
@@ -53,7 +67,10 @@ function construirPopUp() {
 
     const btn_sim = document.createElement('a');
     btn_sim.setAttribute('id', 'btn-sim');
-    btn_sim.setAttribute('onclick', 'removerVacina()')
+    // Click do botão que exclui a vacina
+    btn_sim.addEventListener('click', function() {
+        removerVacina();
+    });
     btn_sim.innerText = "SIM"
     container_btns.appendChild(btn_sim)
 
@@ -72,18 +89,7 @@ function destruirPopUp() {
     modal.remove();
 }
 
-//Verifica se há dados armazenados no Web Storage e carrega para o array "vacinas"
-function atualizarVacina() {
-    vacinas[indexVacina] = getVacina();
-
-    // Atualiza os dados armazenados no localStorage com o novo array "vacinas"
-    localStorage.setItem("vacinas", JSON.stringify(vacinas));
-    window.location.href = 'Home.html';
-}
-
 function carregarInformacoes() {
-    console.log(vacinas);
-    console.log(indexVacina);
     let dateEditarVacina = document.getElementById("dateEditarVacina");
     dateEditarVacina.value = vacinas[indexVacina].data;
 
@@ -100,18 +106,37 @@ function carregarInformacoes() {
     proximaVacinaEditar.value = vacinas[indexVacina].proximaData;
     
     let img_comprovante = document.getElementById("img-comprovante")
-    img_comprovante.setAttribute("src", vacinas[index].comprovante)
+    img_comprovante.setAttribute("src", vacinas[index].comprovante) // ----------- alterar aqui para indexVacina depois
 }
 
+//Elemento de input
+const imagemInput = document.getElementById("comprovante");
+//Elemento de imagem
+const imagemPreview = document.getElementById("img-comprovante");
+//Ouvinte para o input de imagem
+imagemInput.addEventListener("change", function() {
+  const imagemSelecionada = imagemInput.files[0];
+  const leitorDeArquivo = new FileReader();
+
+  leitorDeArquivo.addEventListener("load", function() {
+    imagemPreview.setAttribute("src", leitorDeArquivo.result);
+  });
+
+  if (imagemSelecionada) {
+    leitorDeArquivo.readAsDataURL(imagemSelecionada);
+  }
+});
+
 // Função para lidar com a submissão do formulário de cadastro de vacinas
-function getVacina() {
+function atualizarVacina() {
     let nome = document.getElementById("txtEditarNomeVacina").value;
     let data = document.getElementById("dateEditarVacina").value;
     let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
     let comprovante = document.getElementById("comprovante").value;
-    let proximaData = document.getElementById("dateEditarVacina").value;
+    let proximaData = document.getElementById("proximaVacinaEditar").value;
 
-    // const docRef = doc(db, `usuarios/${userID}/vacinas`, indexFirebase)
+    // Passa areferenciado documento a ser atualizado
+    const docRef = doc(db, `usuarios/${userID}/vacinas`, indexFirebase)
 
     let vacina = {
         nome: nome,
@@ -121,7 +146,34 @@ function getVacina() {
         proximaData: proximaData
     };
 
-    // updateDoc(docRef, vacina).then((result) => { console.log("Documento alterado"); }).catch((erro) => { "Erro ao alterar" })
+    // Atualiza o documento
+    updateDoc(docRef, vacina)
+    .then((result) => {
 
-    return vacina
+        // Log
+        console.log("Documento alterado" + result); 
+
+        // Atualiza a vacina no array para o indice indicado
+        vacinas[indexVacina] = vacina
+
+        //Salvao array vacinasno localStorage
+        localStorage.setItem("vacinas", JSON.stringify(vacinas));
+
+        // Reedireciona para tela Home
+        window.location.href = 'Home.html';
+    })
+    .catch((erro) => {
+        "Erro ao alterar" + erro
+    })
+    
 }
+
+// Click do botão salvar alteração
+document.getElementById('atualizarVacina').addEventListener('click', () => {
+    atualizarVacina()
+})
+
+// Click do botão salvar alteração
+document.getElementById('construirPopUp').addEventListener('click', () => {
+    construirPopUp()
+})
