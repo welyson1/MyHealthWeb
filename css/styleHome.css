@@ -92,3 +92,8 @@ input[type="text"] {
 .invisible{
     display: none;
 }
+
+#imagem-comprovante-car{
+    width: 299px;
+    height: 146px;
+}

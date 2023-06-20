@@ -172,4 +172,6 @@ input[type=file]{
 
 #img-comprovante{
   display: flex;
+  width: 299px;
+  height: 146px;
 }

@@ -1,5 +1,6 @@
-import { auth, db } from "../firebase/config.js";
+import { auth, db, storage } from "../firebase/config.js";
 import { collection, addDoc, doc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+import { getStorage, uploadBytes, getDownloadURL, ref } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js";
 
 window.onload = () => {
     if (localStorage.getItem("vacinas") !== null) {
@@ -35,6 +36,7 @@ let baseDoses = {
     4:"Reforço",
     5:"Dose Única"
 }
+let imagemSelecionada;
 
 function carregarArray() {
      // Variavel que recebe o retorno da função que pega o ID do usuario
@@ -159,7 +161,7 @@ function criadorCard(index) {
 
     // Definição dos atributos do elemento de img
     imagem_comprovante_car.setAttribute('id', 'imagem-comprovante-car');
-    imagem_comprovante_car.setAttribute('src', '/img/image-comprovante.png'); //-------
+    imagem_comprovante_car.setAttribute('src', vacinas[index].comprovante); //-------
 
     // Colocando como filho da div image-card
     image_card.appendChild(imagem_comprovante_car);
@@ -197,7 +199,7 @@ const imagemInput = document.getElementById("comprovante");
 const imagemPreview = document.getElementById("img-comprovante");
 //Ouvinte para o input de imagem
 imagemInput.addEventListener("change", function() {
-  const imagemSelecionada = imagemInput.files[0];
+  imagemSelecionada = imagemInput.files[0];
   const leitorDeArquivo = new FileReader();
 
   leitorDeArquivo.addEventListener("load", function() {
@@ -222,29 +224,41 @@ function cadastrarVacina() {
     const userID = idUser();
 
     // Define a subcoleção
-    const colecao = collection(db, `usuarios/${userID}/vacinas`)
+    const colecao = collection(db, `usuarios/${userID}/vacinas`)    
 
-    // Define o objeto com os dados
-    const dados = {
-        nome: nome,
-        data: data,
-        doseSelecionada: doseSelecionada,
-        comprovante: comprovante,
-        proximaData: proximaData
-    }
+    const imageRef = ref(storage, `img/${Math.floor(Math.random() * (9999 - 0 + 1)) + 0}.png`)
 
-    // Faz a requisição
-    addDoc(colecao, dados)
-        .then((result) => {
-            // Log
-            console.log("Vacina cadastrada" + result);
-            window.location.href = 'Home.html';
-            
-        })
-        .catch((erro) => {
-            // Log
-            console.log("Erro ao cadastrar" + erro);
-        })    
+    uploadBytes(imageRef, imagemSelecionada)
+    .then((result) => {
+        console.log("Arquivo enviado");
+        getDownloadURL(imageRef)
+            .then((url) => {
+                // Define o objeto com os dados
+                const dados = {
+                    nome: nome,
+                    data: data,
+                    doseSelecionada: doseSelecionada,
+                    comprovante: url,
+                    proximaData: proximaData
+                }
+
+                // Faz a requisição
+                addDoc(colecao, dados)
+                .then((result) => {
+                    // Log
+                    console.log("Vacina cadastrada" + result);
+                    window.location.href = 'Home.html';
+                    
+                })
+                .catch((erro) => {
+                    // Log
+                    console.log("Erro ao cadastrar" + erro);
+                })   
+            }).catch((erro) => { console.log("Erro"); })
+    })
+    .catch((erro) => {
+        console.log("Erro ao enviar arquivo");
+    })     
 }
 
 // Click do botão cadastrar

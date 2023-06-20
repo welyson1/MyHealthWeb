@@ -106,7 +106,7 @@ function carregarInformacoes() {
     proximaVacinaEditar.value = vacinas[indexVacina].proximaData;
     
     let img_comprovante = document.getElementById("img-comprovante")
-    img_comprovante.setAttribute("src", vacinas[index].comprovante) // ----------- alterar aqui para indexVacina depois
+    img_comprovante.setAttribute("src", vacinas[indexVacina].comprovante)
 }
 
 //Elemento de input
@@ -132,7 +132,7 @@ function atualizarVacina() {
     let nome = document.getElementById("txtEditarNomeVacina").value;
     let data = document.getElementById("dateEditarVacina").value;
     let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
-    let comprovante = document.getElementById("comprovante").value;
+    // let comprovante = document.getElementById("comprovante").value;
     let proximaData = document.getElementById("proximaVacinaEditar").value;
 
     // Passa areferenciado documento a ser atualizado
@@ -142,7 +142,7 @@ function atualizarVacina() {
         nome: nome,
         data: data,
         doseSelecionada: doseSelecionada,
-        comprovante: comprovante,
+        // comprovante: comprovante,
         proximaData: proximaData
     };
 
