@@ -24,6 +24,29 @@ let comprovanteVacinas = {
     5:"/img/botaa.png"
 }
 
+function buscarVacinas() {
+    // Obtém o valor do campo de pesquisa em letras minúsculas
+    const termoDePesquisa = document.querySelector('input[name="search-vacina"]').value.toLowerCase();
+
+    // Loop para percorrer todas as vacinas no array
+    for (let index = 0; index < vacinas.length; index++) {
+        // Seleciona o elemento do cartão de vacina correspondente ao índice atual
+        const card = document.querySelector(`.card-vacina[data-index="${index}"]`);
+
+        // Obtém o nome da vacina atual em letras minúsculas
+        const nomeVacina = vacinas[index].nome.toLowerCase();
+
+        // Verifica se o nome da vacina contém o termo de pesquisa
+        if (nomeVacina.includes(termoDePesquisa)) {
+            // Se houver correspondência, mostra o cartão de vacina
+            card.style.display = 'block';
+        } else {
+            // Se não houver correspondência, oculta o cartão de vacina
+            card.style.display = 'none';
+        }
+    }
+}
+
 function editarVacina(card_vacina) {
     localStorage.setItem("indexVacina", JSON.stringify(card_vacina.dataset.index));
     window.location.href = 'Editar_Vacina.html';    
