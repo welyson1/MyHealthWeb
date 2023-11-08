@@ -15,15 +15,6 @@ let baseDoses = {
     5:"Dose Única"
 }
 
-let comprovanteVacinas = {
-    0:"/img/vacina.gif",
-    1:"/img/Comprovante.jpg",
-    2:"/img/5ca0b3929a665.jpeg",
-    3:"/img/vacinado-alligator.gif",
-    4:"/img/bota.jpg",
-    5:"/img/botaa.png"
-}
-
 function buscarVacinas() {
     // Obtém o valor do campo de pesquisa em letras minúsculas
     const termoDePesquisa = document.querySelector('input[name="search-vacina"]').value.toLowerCase();
@@ -70,7 +61,6 @@ function adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData) 
 function carregarTabelaVacinas() {
     //Seleção da section com propriedade grid que irão os cards de vacina
     const section_grid = document.querySelector('section.section-grid');   
-    
 
     for (let index = 0; index < vacinas.length; index++) {     
         section_grid.appendChild(criadorCard(index));  
@@ -81,8 +71,8 @@ function criadorCard(index) {
     //Criação do molde do card dentro da section
     const card_vacina = document.createElement('div');
     card_vacina.dataset.index = index;
-    card_vacina.setAttribute('class', 'card-vacina');  
-    card_vacina.setAttribute('onclick', 'editarVacina(this)')//Define o onclick no elemento para função remover 
+    card_vacina.setAttribute('class', 'card-vacina');
+    card_vacina.setAttribute('onclick', 'editarVacina(this)'); // Define o onclick no elemento para função remover 
 
     //Criando a parte superior do card de vacina
     const cabeca_card = document.createElement('div');
@@ -104,9 +94,9 @@ function criadorCard(index) {
     cabeca_card.appendChild(qtd_dose);
     cabeca_card.appendChild(data_dose);
     //Preenchendo com informações
-    titulo_vacina.innerText = vacinas[index].nome; //-------
-    qtd_dose.innerText = baseDoses[vacinas[index].doseSelecionada];//--------
-    data_dose.innerText = vacinas[index].data //-------
+    titulo_vacina.innerText = vacinas[index].nome;
+    qtd_dose.innerText = baseDoses[vacinas[index].doseSelecionada];
+    data_dose.innerText = vacinas[index].data;
 
     //Criação do modelo de para colocar a imagem
     const image_card = document.createElement('div');
@@ -117,7 +107,7 @@ function criadorCard(index) {
     const imagem_comprovante_car = document.createElement('img');
     //Definição dos atributos do elemento de img
     imagem_comprovante_car.setAttribute('id', 'imagem-comprovante-car');
-    imagem_comprovante_car.setAttribute('src', comprovanteVacinas[Math.floor(Math.random() * 6)]); //-------
+    imagem_comprovante_car.setAttribute('src', vacinas[index].comprovante); // Use o valor real do comprovante
     //Colocando como filho da div image-card
     image_card.appendChild(imagem_comprovante_car);
 
@@ -129,19 +119,14 @@ function criadorCard(index) {
     card_vacina.appendChild(vencimento_card);
     //Criando o elemento de texto
     const proxima_dose = document.createElement('h2')
-    proxima_dose.setAttribute('id', 'proxima-dose')                    
+    proxima_dose.setAttribute('id', 'proxima-dose');
     //Definindo o elemento texto como filho
-    vencimento_card.appendChild(proxima_dose)
+    vencimento_card.appendChild(proxima_dose);
     //Preenchendo com informações
-    proxima_dose.innerText = vacinas[index].proximaData; //--------
+    proxima_dose.innerText = vacinas[index].proximaData;
 
-    return card_vacina
+    return card_vacina;
 }
-
-// function carregarComprovante() {
-//     let img_comprovante = document.getElementById("img-comprovante")
-//     img_comprovante.setAttribute("src", vacinas[index].comprovante)
-// }
 
 //Elemento de input
 const imagemInput = document.getElementById("comprovante");
@@ -149,16 +134,16 @@ const imagemInput = document.getElementById("comprovante");
 const imagemPreview = document.getElementById("img-comprovante");
 //Ouvinte para o input de imagem
 imagemInput.addEventListener("change", function() {
-  const imagemSelecionada = imagemInput.files[0];
-  const leitorDeArquivo = new FileReader();
+    const imagemSelecionada = imagemInput.files[0];
+    const leitorDeArquivo = new FileReader();
 
-  leitorDeArquivo.addEventListener("load", function() {
-    imagemPreview.setAttribute("src", leitorDeArquivo.result);
-  });
+    leitorDeArquivo.addEventListener("load", function() {
+        imagemPreview.setAttribute("src", leitorDeArquivo.result);
+    });
 
-  if (imagemSelecionada) {
-    leitorDeArquivo.readAsDataURL(imagemSelecionada);
-  }
+    if (imagemSelecionada) {
+        leitorDeArquivo.readAsDataURL(imagemSelecionada);
+    }
 });
 
 // Função para lidar com a submissão do formulário de cadastro de vacinas
@@ -166,7 +151,7 @@ function cadastrarVacina() {
     let nome = document.getElementById("txtNovoNomeVacina").value;
     let data = document.getElementById("dateNovoVacina").value;
     let doseSelecionada = document.querySelector('input[name="dose"]:checked').value;
-    let comprovante = document.getElementById("comprovante").value;
+    let comprovante = imagemPreview.src; // Use a imagem selecionada pelo usuário
     let proximaData = document.getElementById("dateProximaVacina").value;
     adicionarVacina(nome, data, doseSelecionada, comprovante, proximaData);
 }
