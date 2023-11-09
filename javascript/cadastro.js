@@ -52,9 +52,7 @@ function login() {
 
   if (user) {
     alert("Login bem-sucedido!");
-    console.log(users);
   } else {
     alert("Credenciais inválidas. Tente novamente.");
-    console.log(users);
   }
 }
