@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png"> 
-        <link rel="stylesheet" href="/css/styleNav.css">  
-        <link rel="stylesheet" href="/css/styleEntrar.css">     
-    </head>
-    <body>
-        <!-- #region Cabeçalho -->
-        <nav>
-            <div id="div_logoEnome">
-                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-                <h1>MyHealth</h1>
-            </div>          
-        </nav>
-        <!-- #endregion -->
-        
-        <!-- #region Corpo -->
-        <Main>
-            <form action="login.php" method="post">
 
-                <div class="form-div">
-                    <label for="txtEmailLogin">E-mail</label>
-                    <input type="text" name="emailLogin" id="txtEmailLogin">
-                </div>
+<head>
+    <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
+    <link rel="stylesheet" href="/css/styleNav.css">
+    <link rel="stylesheet" href="/css/styleEntrar.css">
+</head>
 
-                <div class="form-div">
-                    <label for="pwSenha">Senha</label>
-                    <input type="password" name="senhaLogin" id="pwSenha">
-                </div>
+<body>
+    <!-- #region Cabeçalho -->
+    <nav>
+        <div id="div_logoEnome">
+            <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+            <h1>MyHealth</h1>
+        </div>
+    </nav>
+    <!-- #endregion -->
 
-                <div class="form-div">
-                    <label id="login-log">E-mail e/ou senha inválidos.</label>
-                </div>
+    <!-- #region Corpo -->
+    <Main>
+        <form>
 
-                <div class="form-div">
-                    <a href="/html/Home.html" class="btn">Entrar</a>
-                </div>
+            <div class="form-div">
+                <label for="txtEmailLogin">E-mail</label>
+                <input type="text" name="emailLogin" id="txtEmailLogin">
+            </div>
 
-                <div class="form-div">
-                    <a href="/html/Recuperar_a_senha.html" id="esqueci-senha">Esqueci minha senha</a>
-                </div>
+            <div class="form-div">
+                <label for="pwSenha">Senha</label>
+                <input type="password" name="senhaLogin" id="pwSenha">
+            </div>
 
-            </form>
-        </Main>
-        <!-- #endregion -->
-    </body>
+            <div class="form-div">
+                <label id="login-log">E-mail e/ou senha inválidos.</label>
+            </div>
+
+            <div class="form-div">
+                <button onclick="login()" class="btn">Entrar</button>
+            </div>
+
+            <div class="form-div">
+                <a href="/html/Recuperar_a_senha.html" id="esqueci-senha">Esqueci minha senha</a>
+            </div>
+
+        </form>
+    </Main>
+    <!-- #endregion -->
+    <script src="/javascript/cadastro.js"></script>
+</body>
+
 </html>
