@@ -1,7 +1,11 @@
 window.onload = () => {
+  const emailInput = document.getElementById("txtCriarEmail");
   const senhaInput = document.getElementById("pwCriarSenha");
   const confirmarSenhaInput = document.getElementById("pwRepetirCriarSenha");
 
+  emailInput.addEventListener("keyup", () => {
+    validarEmail(emailInput);
+  });
   senhaInput.addEventListener("keyup", () => {
     validarSenha(senhaInput, confirmarSenhaInput);
   });
@@ -9,6 +13,19 @@ window.onload = () => {
     validarSenha(senhaInput, confirmarSenhaInput);
   });
 };
+
+function validarEmail(emailInput) {
+  let content = emailInput.value;
+  let labelElement = document.getElementById("log-email");
+  const regex =
+    /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  let validador = regex.test(String(content).toLowerCase());
+  if (validador) {
+    labelElement.style.display = "none";
+  } else {
+    labelElement.style.display = "block";
+  }
+}
 
 function validarSenha(senhaInput, confirmarSenhaInput) {
   let labelElement = document.getElementById("log-senha");
