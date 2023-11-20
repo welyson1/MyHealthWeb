@@ -1,83 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png"> 
-        <link rel="stylesheet" href="/css/styleNova_Vacina.css">
-        <link rel="stylesheet" href="/css/styleNav.css">  
-    </head>
-    <body>
-        <!-- #region Cabeçalho -->
-        <nav>
-            <div id="div_logoEnome">
-                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-                <h1>MyHealth</h1>
-            </div> 
-            <div>
-                <a class="btn" href="/html/Home.html">Minhas vacinas</a>
-                <a class="btn" href="/html/Entrar.html">Logout</a>
-            </div>            
-        </nav>
-        <!-- #endregion -->
-        
-        <!-- #region Corpo -->
-        <main>   
-            <form method="post">
+  <head>
+    <link
+      rel="icon"
+      type="png"
+      href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png"
+    />
+    <link rel="stylesheet" href="/css/styleNova_Vacina.css" />
+    <link rel="stylesheet" href="/css/styleNav.css" />
+  </head>
+  <body>
+    <!-- #region Cabeçalho -->
+    <nav>
+      <div id="div_logoEnome">
+        <img
+          id="iconePage"
+          src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png"
+          alt="Icon de seringa"
+        />
+        <h1>MyHealth</h1>
+      </div>
+      <div>
+        <a class="btn" href="/html/Home.html">Minhas vacinas</a>
+        <a class="btn" href="/html/Entrar.html">Logout</a>
+      </div>
+    </nav>
+    <!-- #endregion -->
 
-                <div class="form-div">
-                    <label for="dateNovoVacina">Data da vacina</label>
-                    <input type="date" name="dateNovoVacina" id="dateNovoVacina">
-                </div>
+    <!-- #region Corpo -->
+    <main>
+      <form method="post">
+        <div class="form-div">
+          <label for="dateNovoVacina">Data da vacina</label>
+          <input type="date" name="dateNovoVacina" id="dateNovoVacina" />
+        </div>
 
-                <div class="form-div">
-                    <label for="txtNovoNomeVacina">vacina</label>
-                    <input type="text" name="txtNovoNomeVacina" id="txtNovoNomeVacina">
-                </div> 
+        <div class="form-div">
+          <label for="txtNovoNomeVacina">vacina</label>
+          <input type="text" name="txtNovoNomeVacina" id="txtNovoNomeVacina" />
+        </div>
 
-                <div class="form-div">
-                    <label>Dose</label>
-                    <div class="form-div-dose"> 
-                        <input type="radio" name="dose" id="1_dose" value=1>
-                        <label for="1_dose">1a. dose</label>
-    
-                        <input type="radio" name="dose" id="2_dose" value=2>
-                        <label for="2_dose">2a. dose</label>
-                        
-                        <input type="radio" name="dose" id="3_dose" value=3>
-                        <label for="3_dose">3a. dose</label>
-    
-                        <input type="radio" name="dose" id="reforco" value=4>
-                        <label for="reforco">Reforço</label>
-    
-                        <input type="radio" name="dose" id="unica" value=5>
-                        <label for="unica">Dose Única</label>
-                    </div>
-                </div>                
+        <div class="form-div">
+          <label>Dose</label>
+          <div class="form-div-dose">
+            <input type="radio" name="dose" id="1_dose" value="1" />
+            <label for="1_dose">1a. dose</label>
 
-                <div class="form-div">
-                    <label for="comprovante">Comprovante de vacinação</label>
-                    <input type="file" id="comprovante" name="comprovante" accept="image/*"> 
-                    <label for="comprovante" class="file-label">Selecionar imagem...</label>
-                </div>  
+            <input type="radio" name="dose" id="2_dose" value="2" />
+            <label for="2_dose">2a. dose</label>
 
-                <div class="form-div">
-                    <label></label>
-                    <img src="/img/image-comprovante.png" id="img-comprovante">
-                </div> 
+            <input type="radio" name="dose" id="3_dose" value="3" />
+            <label for="3_dose">3a. dose</label>
 
-                <div class="form-div">
-                    <label for="dateProximaVacina">Próxima vacinação</label>
-                    <input type="date" name="dateProximaVacina" id="dateProximaVacina">
-                </div>
-                
-                <section class="section-btn-cadastrar">
-                    <!-- <button class="btn-verde" onclick="btnNovaVacina()">Cadastrar</button> -->
-                    <a class="btn-verde" id="formCadastro" onclick="cadastrarVacina()">Cadastrar</a>
-                </section>                                         
-            </form>
-        </main>
-        <!-- #endregion -->
-        <script src="/javascript/vacina.js">
-            carregarTabelaVacinas()
-        </script>
-    </body>
+            <input type="radio" name="dose" id="reforco" value="4" />
+            <label for="reforco">Reforço</label>
+
+            <input type="radio" name="dose" id="unica" value="5" />
+            <label for="unica">Dose Única</label>
+          </div>
+        </div>
+
+        <div class="form-div">
+          <label for="comprovante">Comprovante de vacinação</label>
+          <input
+            type="file"
+            id="comprovante"
+            name="comprovante"
+            accept="image/*"
+          />
+          <label for="comprovante" class="file-label"
+            >Selecionar imagem...</label
+          >
+        </div>
+
+        <div class="form-div">
+          <label></label>
+          <img src="/img/image-comprovante.png" id="img-comprovante" />
+        </div>
+
+        <div class="form-div">
+          <label for="dateProximaVacina">Próxima vacinação</label>
+          <input type="date" name="dateProximaVacina" id="dateProximaVacina" />
+        </div>
+
+        <div class="form-div">
+          <label id="log-nome"
+            >Nome inválido, insira ao menos 6 caracteres para o nome da
+            vacina!</label
+          >
+        </div>
+
+        <section class="section-btn-cadastrar">
+          <!-- <button class="btn-verde" onclick="btnNovaVacina()">Cadastrar</button> -->
+          <a class="btn-verde" id="formCadastro" onclick="cadastrarVacina()"
+            >Cadastrar</a
+          >
+        </section>
+      </form>
+    </main>
+    <!-- #endregion -->
+    <script src="/javascript/vacina.js">
+      carregarTabelaVacinas()
+    </script>
+  </body>
 </html>

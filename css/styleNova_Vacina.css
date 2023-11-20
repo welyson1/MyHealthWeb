@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap");
 /* https://pt.stackoverflow.com/questions/268506/como-alinhar-label-ao-lado-do-input */
 
 body {
   margin: 0;
   background-color: #fff;
-  color: #419ED7;
-  font-family: 'Averia Libre';
+  color: #419ed7;
+  font-family: "Averia Libre";
 }
-main{
-  background-color: #ADD4D0;
+main {
+  background-color: #add4d0;
   height: 100vh;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   gap: 10px;
 }
 
-.form-div{
+.form-div {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -29,49 +29,57 @@ form{
   font-size: 24px;
   text-align: right;
   width: 290px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.form-div-dose{
+.form-div-dose {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 890px;
 }
 
-.form-div-dose label{
+.form-div-dose label {
   font-size: 24px;
   width: 100%;
   text-align: left;
 }
 
-input{
+input {
   display: inline-block;
-  font-family: 'Averia Libre';
+  font-family: "Averia Libre";
   height: 40px;
   width: 40%;
-  color: #3F92C5;
-  accent-color: #3F92C5;
+  color: #3f92c5;
+  accent-color: #3f92c5;
   font-size: 24px;
   border: 1px solid #ccc;
 }
 
-input[type=radio]{
-  transform:scale(0.75);
+input[type="radio"] {
+  transform: scale(0.75);
   border: none;
 }
 
-input[type=file]{
+input[type="file"] {
   display: none;
-  color: #3F92C5;
-  background-color: #3F92C5;
+  color: #3f92c5;
+  background-color: #3f92c5;
 }
-.file-label{
+.file-label {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3F92C5;
+  background-color: #3f92c5;
   height: 50px;
+}
+#log-nome {
+  display: none;
+  text-align: center;
+  font-size: 15px;
+  margin: 3px;
+  margin-left: 25rem;
+  color: red;
 }
 
 .section-btn-cadastrar {
@@ -82,16 +90,16 @@ input[type=file]{
 
 .btn-verde {
   box-shadow: 0px 1px 5px -1px #000000;
-  background-color: #37BD6D;
+  background-color: #37bd6d;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
   font-size: 17px;
-  font-family: 'Averia Libre';
+  font-family: "Averia Libre";
   padding: 10px 31px;
   max-width: 200px;
 }
 
-#img-comprovante{
+#img-comprovante {
   height: 200px;
 }
