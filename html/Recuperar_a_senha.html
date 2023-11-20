@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
-        <link rel="stylesheet" href="/css/styleNav.css">
-        <link rel="stylesheet" href="/css/styleRecuperar_a_senha.css">     
-    </head>
-    <body>
-        <!-- #region Cabeçalho -->
-        <nav>
-            <div id="div_logoEnome">
-                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-                <h1>MyHealth</h1>
-            </div>          
-        </nav>
-        <!-- #endregion -->
-        
-        <!-- #region Corpo -->
-        <Main>
-            <form action="recuperar.php" method="post">
-                <div class="form-div">
-                    <label for="txtEmailRecuperar">E-mail</label>
-                    <input type="text" name="emailRecuperar" id="txtEmailRecuperar">
-                </div>
-                <div class="form-div">
-                    <a href="/html/Entrar.html" class="btn">Redefinir senha</a>
-                </div>
-            </form>
-        </Main>
-        <!-- #endregion -->
-    </body>
+
+<head>
+    <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
+    <link rel="stylesheet" href="/css/StyleDefault.css">
+    <link rel="stylesheet" href="/css/styleNav.css">
+    <link rel="stylesheet" href="/css/styleRecuperar_a_senha.css">
+</head>
+
+<body>
+    <nav>
+        <div id="div_logoEnome">
+            <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+            <h1>MyHealth</h1>
+        </div>
+    </nav>
+    <Main class="container">
+        <form action="recuperar.php" method="post">
+            <div class="form-div">
+                <label for="txtEmailRecuperar">E-mail</label>
+                <input type="text" name="emailRecuperar" id="txtEmailRecuperar">
+            </div>
+            <div class="form-div">
+                <a href="/html/Entrar.html" class="btn">Redefinir senha</a>
+            </div>
+        </form>
+    </Main>
+</body>
+
 </html>

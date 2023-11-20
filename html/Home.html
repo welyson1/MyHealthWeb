@@ -6,6 +6,7 @@
         <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
         <link rel="stylesheet" href="/css/styleHome.css">
         <link rel="stylesheet" href="/css/styleNav.css">
+        <link rel="stylesheet" href="/css/StyleDefault.css">
     </head>
     <body>
         <nav>
@@ -19,24 +20,15 @@
             </div>            
         </nav>
         
-        <Main>
-            <!-- #region Busca-->
+        <Main class="container">
             <section class="section-search">
                 <input type="text" name="search-vacina" value="" placeholder="PESQUISAR VACINA..." oninput="buscarVacinas()" />
             </section>
-            <!-- #endregion -->
-
-            <!-- #region Grid com as vacinas cadastradas-->
             <section class="section-grid">
-                <!-- <div class="card-vacina"> -->
             </section>
-            <!-- #endregion -->           
-
-            <!-- #region Botão para cadastrar nova vacina-->
             <section class="section-btn">
                 <a class="btn-verde" href="/html/Nova_Vacina.html">Nova vacina</a>
             </section>
-            <!-- #endregion -->
         </Main>
         <script src="/javascript/vacina.js"></script>
     </body>

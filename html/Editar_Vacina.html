@@ -4,10 +4,9 @@
         <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png"> 
         <link rel="stylesheet" href="/css/styleEditar_Vacina.css">
         <link rel="stylesheet" href="/css/styleNav.css">  
+        <link rel="stylesheet" href="/css/StyleDefault.css">
     </head>
     <body id="body">
-             
-        <!-- #region Cabeçalho -->
         <nav>
             <div id="div_logoEnome">
                 <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
@@ -18,10 +17,7 @@
                 <a class="btn" href="/html/Entrar.html">Logout</a>
             </div>            
         </nav>
-        <!-- #endregion -->
-        
-        <!-- #region Corpo -->
-        <main class="form">   
+        <main class="form container">   
             <section class="section-btn-excluir">             
                 <button class="btn-vermelho" onclick="construirPopUp()">🗑️ Excluir</button>
             </section>
@@ -76,17 +72,6 @@
                 <button class="btn-verde" onclick="atualizarVacina()">Salvar alterações</button>
             </section>
         </main>
-        <!-- #endregion -->
-        
-        <!-- <div class="backgroud-modal"></div> 
-
-        <div class="modal">
-            <h2 id="mensagem-excluir">Tem certeza que deseja remover essa vacina?</h2>
-            <div class="container-btns">
-                <a id="btn-sim" onclick="removerVacina()">SIM</a>
-                <a id="btn-cancelar" onclick="destruirPopUp()">CANCELAR</a>
-            </div>
-        </div> -->
         <script src="/javascript/editarVacina.js"></script>
     </body>
 </html>
