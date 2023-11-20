@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap');
-
 body {
-    margin: 0;
-    background-color: #fff;
-    color: #419ED7;
-    font-family: 'Averia Libre';
+    background-color: #87b3d2;
 }
+
 main{
-    background-color: #ADD4D0;
+    background-color: #87b3d2;
     height: 100vh;
+    padding: 60px 120px;
+    margin: 0 auto;
 }
 
 form{
@@ -21,6 +19,7 @@ form{
 }
 .form-div{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -34,19 +33,19 @@ form{
 }
 .form-label {
     font-size: 24px;
-    text-align: right;
+    align-self: flex-start;
     width: 210px;
     color: #FFFFFF;
 }
 input{
     display: inline-block;
-    font-family: 'Averia Libre';
     height: 40px;
-    width: 40%;
+    width: 100%;
     color: #3F92C5;
     accent-color: #3F92C5;
     font-size: 24px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 input[type=radio]{
@@ -60,15 +59,19 @@ input[type=radio]{
     color: red;        
 }
 .btn-verde {
-    box-shadow: 0px 1px 5px -1px #000000;
-    border: 1px solid #37BD6D;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
     background-color: #37BD6D;
-    display: inline-block;
     cursor: pointer;
     color: #ffffff;
     font-size: 17px;
-    font-family: 'Averia Libre';
     padding: 10px 31px;
     max-width: 200px;
-} 
+}
+
+.btn-verde:hover {
+    background-color: #289b56;
+}
   
