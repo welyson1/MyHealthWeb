@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <title>Suas vacinas</title>
-        <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
-        <link rel="stylesheet" href="/css/styleHome.css">
-        <link rel="stylesheet" href="/css/styleNav.css">
-        <link rel="stylesheet" href="/css/StyleDefault.css">
-    </head>
-    <body>
-        <nav>
-            <div id="div_logoEnome">
-                <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
-                <h1>MyHealth</h1>
-            </div> 
-            <div>
-                <a class="btn" href="/html/Home.html">Minhas vacinas</a>
-                <a class="btn" href="/html/Entrar.html">Sair</a>
-            </div>            
-        </nav>
-        
-        <Main class="container">
-            <section class="section-search">
-                <input type="text" name="search-vacina" value="" placeholder="PESQUISAR VACINA..." oninput="buscarVacinas()" />
-            </section>
-            <section class="section-grid">
-            </section>
-            <section class="section-btn">
-                <a class="btn-verde" href="/html/Nova_Vacina.html">Nova vacina</a>
-            </section>
-        </Main>
-        <script src="/javascript/vacina.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Suas vacinas</title>
+    <link rel="icon" type="png" href="https://cdn-icons-png.flaticon.com/512/1021/1021562.png">
+    <link rel="stylesheet" href="/css/styleHome.css">
+    <link rel="stylesheet" href="/css/styleNav.css">
+    <link rel="stylesheet" href="/css/StyleDefault.css">
+</head>
+<body>
+    <nav>
+        <div id="div_logoEnome">
+            <img id="iconePage" src="https://cdn-icons-png.flaticon.com/512/1021/1021562.png" alt="Icon de seringa">
+            <h1>MyHealth</h1>
+        </div> 
+        <div>
+            <a class="btn" href="/html/Home.html">Minhas vacinas</a>
+            <a class="btn" href="/html/Perfil.html">Meu Perfil</a>
+            <a class="btn" href="/html/Entrar.html">Sair</a>
+        </div>            
+    </nav>
+    
+    <Main class="container">
+        <section class="section-search">
+            <input type="text" name="search-vacina" value="" placeholder="PESQUISAR VACINA..." oninput="buscarVacinas()" />
+        </section>
+        <section class="section-grid">
+        </section>
+        <section class="section-btn">
+            <a class="btn-verde" href="/html/Nova_Vacina.html">Nova vacina</a>
+        </section>
+    </Main>
+    <script src="/javascript/vacina.js"></script>
+    <script>
+        // Vamos incluir informações do usuário no localStorage para serem acessadas na página de perfil
+        const usuarioLogado = { username: "exemplo", email: "exemplo@example.com", };
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+    </script>
+</body>
+</html>
